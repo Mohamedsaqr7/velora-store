@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:velora/core/app/env_varibales.dart';
 
 class VeloraStore extends StatelessWidget {
   const VeloraStore({super.key});
@@ -14,7 +15,7 @@ class VeloraStore extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
           title: 'Velora Store',
-          debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: EnvVariable.instance.debugMood,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
