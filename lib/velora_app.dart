@@ -18,7 +18,7 @@ class VeloraStore extends StatelessWidget {
         useMaterial3: true,
       ),
       onGenerateRoute: AppRoutes.onGenerateRoute,
-      initialRoute: AppRoutes.test1,
+      initialRoute: AppRoutes.test1, 
     );
   }
 }
