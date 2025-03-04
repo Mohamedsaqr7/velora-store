@@ -5,6 +5,8 @@ import 'package:velora/core/common/no_network_screen.dart';
 import 'package:velora/core/routes/app_routes.dart';
 import 'package:velora/core/style/theme/app_theme.dart';
 
+import 'core/language/app_localization_setup.dart';
+
 class VeloraStore extends StatelessWidget {
   const VeloraStore({super.key});
 
@@ -15,6 +17,10 @@ class VeloraStore extends StatelessWidget {
       title: 'Velora Store',
       debugShowCheckedModeBanner: EnvVariable.instance.debugMood,
       theme: themeDark(),
+      locale: Locale('ar'),
+      supportedLocales: AppLocalizationsSetup.supportedLocales,
+      localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
+      localeResolutionCallback: AppLocalizationsSetup.localeResolutionCallback,
       onGenerateRoute: AppRoutes.onGenerateRoute,
       initialRoute: AppRoutes.test1,
     );
