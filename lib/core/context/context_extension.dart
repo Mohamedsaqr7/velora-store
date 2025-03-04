@@ -9,10 +9,12 @@ extension ContextExt on BuildContext {
 
   MyColors get color => Theme.of(this).extension<MyColors>()!;
 //images
-  MyImages get images => Theme.of(this).extension<MyImages>()!; //Language
+  MyAssets get images => Theme.of(this).extension<MyAssets>()!; //Language
   String translate(String langkey) {
     return AppLocalizations.of(this)!.translate(langkey).toString();
   }
+  //style
+    TextStyle get textStyle => Theme.of(this).textTheme.displaySmall!;
 
 //navigation
   Future<dynamic> pushName(String routeName, {Object? arguments}) {
