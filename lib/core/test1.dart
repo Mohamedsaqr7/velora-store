@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/language/lang_keys.dart';
 import 'package:velora/core/routes/app_routes.dart';
 
 class Test1 extends StatelessWidget {
@@ -9,7 +10,7 @@ class Test1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('dsadsa'),
+        title: Text(context.translate(LangKeys.appName)),
       ),
       body: Column(
         children: [
@@ -19,12 +20,12 @@ class Test1 extends StatelessWidget {
               //  Navigator.of(context).pushNamed(AppRoutes.test2),
               ,
               child: Text(
-                'dadad',
-              style: TextStyle(color: context.color.mainColor),),
+                context.translate(LangKeys.appName),
+                style: TextStyle(color: context.color.mainColor),
+              ),
             ),
-          
           ),
-          Image.asset(context.images.testImage??'')
+          // Image.asset(context.images.testImage ?? '')
         ],
       ),
     );
