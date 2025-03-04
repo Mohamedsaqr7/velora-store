@@ -35,6 +35,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_launcher_icons: ^0.14.3
   flutter_native_splash: ^2.4.1
+  animate_do: ^4.2.0
 
 dev_dependencies:
   flutter_test:
@@ -60,8 +61,12 @@ flutter:
   assets:
     - .env.dev
     - .env.prod
-    - assets/images/core/
+    - assets/svg/
+    - assets/icons/
     - assets/images/
+    - assets/images/core/
+    - assets/images/admin/
+    - assets/images/customer/
     - lang/ar.json
     - lang/en.json
 
