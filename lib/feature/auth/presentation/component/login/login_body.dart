@@ -4,6 +4,7 @@ import 'package:velora/core/common/widgets/animate_do.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
 import 'package:velora/core/context/context_extension.dart';
 import 'package:velora/core/language/lang_keys.dart';
+import 'package:velora/core/routes/app_routes.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 import 'package:velora/feature/auth/presentation/component/auth_title_info.dart';
@@ -32,16 +33,20 @@ class LoginScreenBody extends StatelessWidget {
             LoginTextformScreen(),
             verticalSpace(30),
             LoginButton(),
-            verticalSpace(30),
+            verticalSpace(20),
             CustomFadeInDown(
-              duration: 400,
-              child: TextApp(
-                  text: context.translate(LangKeys.createAccount),
-                  theme: context.textStyle.copyWith(
-                      fontWeight: FontWeightHelper.bold,
-                      fontSize: 16.sp,
-                      color: context.color.bluePinkLight)),
-            ),
+                duration: 400,
+                child: TextButton(
+                  onPressed: () {
+                    context.pushReplacementNamed(AppRoutes.signUp);
+                  },
+                  child: TextApp(
+                      text: context.translate(LangKeys.createAccount),
+                      theme: context.textStyle.copyWith(
+                          fontWeight: FontWeightHelper.bold,
+                          fontSize: 16.sp,
+                          color: context.color.bluePinkLight)),
+                )),
           ],
         ),
       ),

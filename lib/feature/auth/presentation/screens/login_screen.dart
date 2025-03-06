@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/auth_custom_painter.dart';
 import 'package:velora/core/context/context_extension.dart';
 
-import '../component/login_body.dart';
+import '../component/login/login_body.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,7 +12,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CustomPaint(
-        size: Size(double.infinity, 150),
+        size: Size(double.infinity, 150.h),
         painter: AuthCustomPainter(
           gradient: LinearGradient(
             colors: [
@@ -23,9 +24,7 @@ class LoginScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: SafeArea(
-        bottom: false,
-        child: LoginScreenBody()),
+      body: SafeArea(bottom: false, child: LoginScreenBody()),
     );
   }
 }
