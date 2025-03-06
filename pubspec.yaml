@@ -45,7 +45,9 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   retrofit: ^4.4.2
   retrofit_generator: ^8.2.1
+  shared_preferences: ^2.3.3
   shimmer: ^3.0.0
+  # dart run build_runner build --delete-conflicting-outputs
 
 dev_dependencies:
   connectivity_plus: ^6.1.3
