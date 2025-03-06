@@ -38,7 +38,7 @@ class VeloraStore extends StatelessWidget {
                 stream: InternetChecker().onConnectionChange,
                 builder: (context, snapshot) {
                   final isConnected = snapshot.data ?? false;
-                  if (isConnected) {
+                  if (!isConnected) {
                     return const NoNetworkScreen();
                   }
                   return child!;
