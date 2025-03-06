@@ -49,7 +49,7 @@ class CustomTextField extends StatelessWidget {
         color: context.color.textColor,
       ),
       validator: (value) {
-        return validator!(value);
+        return validator!(value!.trim());
       },
       onChanged: onChanged,
       keyboardType: keyboardType,
