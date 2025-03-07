@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:get_it/get_it.dart';
+import 'package:velora/core/networking/api_service.dart';
+import 'package:velora/core/networking/dio_factory.dart';
 
 import '../app/app_cubit/app_cubit.dart';
 import '../app/bloc_observer.dart';
@@ -10,6 +12,8 @@ Future<void> setupInjection() async {
 }
 
 Future<void> _initCore() async {
-  sl.registerFactory<AppCubit>(() => AppCubit());
-  sl.registerLazySingleton<AppBlocObserver>(() => AppBlocObserver());
+  final dio = DioFactory.getDio();
+  sl
+   ..registerFactory(AppCubit.new)
+   ..registerLazySingleton<ApiService>(() => ApiService(dio));
 }
