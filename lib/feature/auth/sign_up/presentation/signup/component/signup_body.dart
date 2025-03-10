@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
 import 'package:velora/core/context/context_extension.dart';
-import 'package:velora/feature/auth/presentation/component/signup/signup_button.dart';
-import 'package:velora/feature/auth/presentation/component/signup/signup_text_form.dart';
-import 'package:velora/feature/auth/presentation/component/signup/user_avatar.dart';
+import 'package:velora/feature/auth/sign_up/presentation/signup/component/signup_button.dart';
+import 'package:velora/feature/auth/sign_up/presentation/signup/component/signup_text_form.dart';
+import 'package:velora/feature/auth/sign_up/presentation/signup/component/user_avatar.dart';
 
-import '../../../../../core/common/widgets/animate_do.dart';
-import '../../../../../core/language/lang_keys.dart';
-import '../../../../../core/routes/app_routes.dart';
-import '../../../../../core/style/fonts/font_weight.dart';
-import '../../../../../core/style/theme/spacing.dart';
-import '../auth_title_info.dart';
-import '../dark_and_lang_buttons.dart';
+import '../../../../../../core/common/widgets/animate_do.dart';
+import '../../../../../../core/language/lang_keys.dart';
+import '../../../../../../core/routes/app_routes.dart';
+import '../../../../../../core/style/fonts/font_weight.dart';
+import '../../../../../../core/style/theme/spacing.dart';
+import '../../../../../../core/common/widgets/auth_title_info.dart';
+import '../../../../../../core/common/widgets/dark_and_lang_buttons.dart';
 
 class SignUpBodyScreen extends StatelessWidget {
   const SignUpBodyScreen({super.key});

@@ -2,8 +2,9 @@ class ApiConstants {
   static const String apiBaseUrl = "https://api.escuelajs.co/api/v1/";
   static const String login = "auth/login";
   static const String signup = "auth/register";
-  
+  static const String userRole = "auth/profile/";
 }
+
 class ApiErrors {
   static const String badRequestError = "badRequestError";
   static const String noContent = "noContent";

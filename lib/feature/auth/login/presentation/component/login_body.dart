@@ -7,8 +7,9 @@ import 'package:velora/core/language/lang_keys.dart';
 import 'package:velora/core/routes/app_routes.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/core/style/theme/spacing.dart';
-import 'package:velora/feature/auth/presentation/component/auth_title_info.dart';
-import 'package:velora/feature/auth/presentation/component/dark_and_lang_buttons.dart';
+import 'package:velora/feature/auth/login/presentation/component/login_bloc_listner.dart';
+import 'package:velora/core/common/widgets/auth_title_info.dart';
+import 'package:velora/core/common/widgets/dark_and_lang_buttons.dart';
 
 import 'login_button.dart';
 import 'login_textform.dart';
@@ -46,7 +47,7 @@ class LoginScreenBody extends StatelessWidget {
                           fontWeight: FontWeightHelper.bold,
                           fontSize: 16.sp,
                           color: context.color.bluePinkLight)),
-                )),
+                )),LoginBlocListener()
           ],
         ),
       ),
