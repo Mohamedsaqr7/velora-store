@@ -8,6 +8,8 @@ import 'package:velora/feature/auth/sign_up/presentation/signup/signup_screen.da
 import 'package:velora/feature/customer/s.dart';
 
 import '../../feature/auth/login/logic/login/login_cubit.dart';
+import '../app/upload_image/cubit/upload_cubit.dart';
+import '../app/upload_image/repo/upload_image_repo.dart';
 import '../common/screens/under_build_screen.dart';
 
 class AppRoutes {
@@ -24,9 +26,20 @@ class AppRoutes {
           create: (context) => getIt<LoginCubit>(),
           child: const LoginScreen(),
         ));
-      case signUp:
-        return BaseRoute(page: const SignupScreen());
-      case homeAdmin:
+       case signUp:
+        return BaseRoute(
+          page: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => UploadImageCubit(getIt<UploadImageRepo>()),
+              ),
+              // BlocProvider(
+              //   create: (context) => SighnUpBloc(getIt<SighnUpRepo>()),
+              // ),
+            ],
+            child: const SignupScreen(),
+          ),
+        );case homeAdmin:
         return  MaterialPageRoute(
           builder: (_) => const adm(),
         );

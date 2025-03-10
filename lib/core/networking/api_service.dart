@@ -6,6 +6,7 @@ import 'package:velora/feature/auth/login/data/model/login_request_body.dart';
 import 'package:velora/feature/auth/login/data/model/login_response.dart';
 
 import '../../feature/auth/login/data/model/user_role_response.dart';
+import '../app/upload_image/model/upload_image_response.dart';
 part 'api_service.g.dart';
 
 @RestApi(baseUrl: ApiConstants.apiBaseUrl)
@@ -16,4 +17,8 @@ abstract class ApiService {
 
   @GET(ApiConstants.userRole)
   Future<UserRoleResponse> userRole();
+  @POST(ApiConstants.uploadImage)
+  Future<UploadImageResourse> uploadImage(
+    @Body() FormData file,
+  );
 }
