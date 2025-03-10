@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
 import 'package:velora/core/context/context_extension.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
-import 'package:velora/custom_button.dart';
+import 'package:velora/core/common/widgets/custom_button.dart';
 
-import 'core/style/fonts/font_family.dart';
+import '../../style/fonts/font_family.dart';
 
 class CustomDialog {
   const CustomDialog._();

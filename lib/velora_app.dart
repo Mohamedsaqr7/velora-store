@@ -8,7 +8,7 @@ import 'package:velora/core/constants/secure_storage.dart';
 import 'package:velora/core/di/dependency_injection.dart';
 import 'package:velora/core/routes/app_routes.dart';
 import 'package:velora/core/style/theme/app_theme.dart';
-import 'package:velora/feature/auth/presentation/screens/signup_screen.dart';
+import 'package:velora/feature/auth/sign_up/presentation/signup/signup_screen.dart';
 
 import 'core/language/app_localization_setup.dart';
 
@@ -19,7 +19,7 @@ class VeloraStore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<AppCubit>()
+      create: (context) => getIt<AppCubit>()
         ..changeAppThemeMode(
             sharedMode: SharedPref().getBoolean(SecureKeys.themeMode))
         ..getSavedLanguage(),

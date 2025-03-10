@@ -5,7 +5,7 @@ import 'package:velora/core/common/widgets/text_app.dart';
 import 'package:velora/core/context/context_extension.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 
-import '../../../../core/style/fonts/font_weight.dart';
+import '../../style/fonts/font_weight.dart';
 
 class AuthTitleInfo extends StatelessWidget {
   const AuthTitleInfo({

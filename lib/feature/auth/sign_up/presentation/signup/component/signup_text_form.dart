@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:velora/core/context/context_extension.dart';
 
-import '../../../../../core/common/widgets/animate_do.dart';
-import '../../../../../core/common/widgets/custom_text_field.dart';
-import '../../../../../core/constants/app_regex.dart';
-import '../../../../../core/language/lang_keys.dart';
-import '../../../../../core/style/theme/spacing.dart';
+import '../../../../../../core/common/widgets/animate_do.dart';
+import '../../../../../../core/common/widgets/custom_text_field.dart';
+import '../../../../../../core/constants/app_regex.dart';
+import '../../../../../../core/language/lang_keys.dart';
+import '../../../../../../core/style/theme/spacing.dart';
 
 class SignupTextForm extends StatelessWidget {
   const SignupTextForm({super.key});

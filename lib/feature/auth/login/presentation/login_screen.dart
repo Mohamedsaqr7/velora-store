@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:velora/core/common/widgets/auth_custom_painter.dart';
 import 'package:velora/core/context/context_extension.dart';
 
-import '../../../../core/common/widgets/auth_custom_painter.dart';
-import '../component/signup/signup_body.dart';
+import 'component/login_body.dart';
 
-class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CustomPaint(
-        size: Size(double.infinity, 130.h),
+        size: Size(double.infinity, 150.h),
         painter: AuthCustomPainter(
           gradient: LinearGradient(
             colors: [
@@ -24,7 +24,7 @@ class SignupScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: SafeArea(child: SignUpBodyScreen()),
+      body: SafeArea(bottom: false, child: LoginScreenBody()),
     );
   }
 }
