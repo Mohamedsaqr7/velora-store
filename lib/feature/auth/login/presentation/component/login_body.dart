@@ -47,7 +47,8 @@ class LoginScreenBody extends StatelessWidget {
                           fontWeight: FontWeightHelper.bold,
                           fontSize: 16.sp,
                           color: context.color.bluePinkLight)),
-                )),LoginBlocListener()
+                )),
+                // LoginBlocListener()
           ],
         ),
       ),

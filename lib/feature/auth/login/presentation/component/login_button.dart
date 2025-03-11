@@ -17,55 +17,76 @@ class LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext contexdt) {
-    
-      return CustomFadeInRight(
-        duration: 400,
-        child: CustomLinearButton(
-          width: double.infinity,
-          height: 50,
-          onPressed: () {
-            validateThenDoLogin(contexdt);
-          },
-          child: TextApp(
-              text: "login",
-              theme: contexdt.textStyle.copyWith(
-                  fontSize: 18.sp, fontWeight: FontWeightHelper.bold)),
-        ),
-      );
-      // return state.maybeWhen(
-      //   loading: () {
-      //     return CustomLinearButton(
-      //       onPressed: () {},
-      //       height: 50.h,
-      //       width: MediaQuery.of(context).size.width,
-      //       child: const CircularProgressIndicator(
-      //         color: Colors.white,
-      //       ),
-      //     );
-      //   },
-      //   orElse: () {
-      //     return CustomFadeInRight(
-      //       duration: 400,
-      //       child: CustomLinearButton(
-      //         width: double.infinity,
-      //         height: 50,
-      //         onPressed: () {
-      //           validateThenDoLogin(context);
-      //         },
-      //         child: TextApp(
-      //             text: context.translate(LangKeys.login),
-      //             theme: context.textStyle.copyWith(
-      //                 fontSize: 18.sp, fontWeight: FontWeightHelper.bold)),
-      //       ),
-      //     );
-      //   },
-      // );
-    }
+    return BlocConsumer<LoginCubit, LoginState>(
+     listener: (context, state) {
+          state.whenOrNull(
+            failure: (message) {
+              ShowToast.showFailureToast(
+                context.translate(LangKeys.loggedError),
+              );
+            },
+            success: (userRole) {
+              ShowToast.showSuccessToast(
+                context.translate(LangKeys.loggedSuccessfully),
+              );
+              if (userRole == 'admin') {
+                context.pushNamedAndRemoveUntil(AppRoutes.homeAdmin);
+              } else if(userRole=='customer'){
+                context.pushNamedAndRemoveUntil(AppRoutes.homeCustomer);
+              }
+            },
+          );
+        },
+      builder: (context, state) {
+        return CustomFadeInRight(
+          duration: 400,
+          child: CustomLinearButton(
+            width: double.infinity,
+            height: 50,
+            onPressed: () {
+              validateThenDoLogin(contexdt);
+            },
+            child: TextApp(
+                text: "login",
+                theme: contexdt.textStyle.copyWith(
+                    fontSize: 18.sp, fontWeight: FontWeightHelper.bold)),
+          ),
+        );
+      },
+    );
+    // return state.maybeWhen(
+    //   loading: () {
+    //     return CustomLinearButton(
+    //       onPressed: () {},
+    //       height: 50.h,
+    //       width: MediaQuery.of(context).size.width,
+    //       child: const CircularProgressIndicator(
+    //         color: Colors.white,
+    //       ),
+    //     );
+    //   },
+    //   orElse: () {
+    //     return CustomFadeInRight(
+    //       duration: 400,
+    //       child: CustomLinearButton(
+    //         width: double.infinity,
+    //         height: 50,
+    //         onPressed: () {
+    //           validateThenDoLogin(context);
+    //         },
+    //         child: TextApp(
+    //             text: context.translate(LangKeys.login),
+    //             theme: context.textStyle.copyWith(
+    //                 fontSize: 18.sp, fontWeight: FontWeightHelper.bold)),
+    //       ),
+    //     );
+    //   },
+    // );
   }
+}
 
-  void validateThenDoLogin(BuildContext context) {
-    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates();
-    }
+void validateThenDoLogin(BuildContext context) {
+  if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+    context.read<LoginCubit>().emitLoginStates();
   }
-
+}

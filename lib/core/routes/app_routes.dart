@@ -3,7 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:velora/core/di/dependency_injection.dart';
 import 'package:velora/core/routes/base_route.dart';
 import 'package:velora/feature/admin/a.dart';
+import 'package:velora/feature/auth/login/data/repo/login_repo.dart';
 import 'package:velora/feature/auth/login/presentation/login_screen.dart';
+import 'package:velora/feature/auth/sign_up/data/repo/sign_up_repo.dart';
+import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:velora/feature/auth/sign_up/presentation/signup/signup_screen.dart';
 import 'package:velora/feature/customer/s.dart';
 
@@ -18,33 +21,34 @@ class AppRoutes {
   static const String homeAdmin = '/homeAdmin';
   static const String homeCustomer = '/homeCustomer';
   static Route<void> onGenerateRoute(RouteSettings settings) {
-    final arg = settings.arguments;
+    // final arg = settings.arguments;
     switch (settings.name) {
       case login:
         return BaseRoute(
             page: BlocProvider(
-          create: (context) => getIt<LoginCubit>(),
+          create: (context) => LoginCubit(getIt<LoginRepo>()),
           child: const LoginScreen(),
         ));
-       case signUp:
+      case signUp:
         return BaseRoute(
           page: MultiBlocProvider(
             providers: [
               BlocProvider(
                 create: (context) => UploadImageCubit(getIt<UploadImageRepo>()),
               ),
-              // BlocProvider(
-              //   create: (context) => SighnUpBloc(getIt<SighnUpRepo>()),
-              // ),
+              BlocProvider(
+                  create: (context) => SignUpCubit(getIt<SignUpRepo>()),
+                  ),
             ],
             child: const SignupScreen(),
           ),
-        );case homeAdmin:
-        return  MaterialPageRoute(
+        );
+      case homeAdmin:
+        return MaterialPageRoute(
           builder: (_) => const adm(),
         );
       case homeCustomer:
-         return MaterialPageRoute(
+        return MaterialPageRoute(
           builder: (_) => const cust(),
         );
       default:

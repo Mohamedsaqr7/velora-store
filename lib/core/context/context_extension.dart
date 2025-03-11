@@ -36,3 +36,22 @@ extension ContextExt on BuildContext {
 
   void pop() => Navigator.of(this).pop();
 }
+
+class Navigation {
+  static void goPush(context, Widget screen) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => screen,
+        ));
+  }
+
+  static void goPushReplace(context, Widget screen) {
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => screen,
+        ));
+  }
+}
+

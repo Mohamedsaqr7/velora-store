@@ -6,22 +6,22 @@ part of 'login_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
-    LoginResponse(
-      data: LoginDataModel.fromJson(json['data'] as Map<String, dynamic>),
+LoginResponseModel _$LoginResponseModelFromJson(Map<String, dynamic> json) =>
+    LoginResponseModel(
+      userData: UserDataModel.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
+Map<String, dynamic> _$LoginResponseModelToJson(LoginResponseModel instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'data': instance.userData,
     };
 
-LoginDataModel _$LoginDataModelFromJson(Map<String, dynamic> json) =>
-    LoginDataModel(
+UserDataModel _$UserDataModelFromJson(Map<String, dynamic> json) =>
+    UserDataModel(
       login: LoginModel.fromJson(json['login'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$LoginDataModelToJson(LoginDataModel instance) =>
+Map<String, dynamic> _$UserDataModelToJson(UserDataModel instance) =>
     <String, dynamic>{
       'login': instance.login,
     };

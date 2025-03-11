@@ -1,9 +1,8 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://api.escuelajs.co/api/v1/";
-  static const String login = "auth/login";
-  static const String signup = "auth/register";
-  static const String userRole = "auth/profile";
-   static const uploadImage = 'files/upload';
+  static const String apiBaseUrl = "https://api.escuelajs.co/";
+  static const graphQl = 'graphql';
+  static const String userProfile = "api/v1/auth/profile";
+  static const uploadImage = 'api/v1/files/upload';
 }
 
 class ApiErrors {
