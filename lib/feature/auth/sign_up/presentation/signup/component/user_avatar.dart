@@ -22,6 +22,7 @@ class UserAvatarScreen extends StatelessWidget {
         builder: (context, state) {
           var cubit = context.read<UploadImageCubit>();
           var imageUploaded = cubit.uploadImageUrl.isNotEmpty;
+          // context.read<UploadImageCubit>().add(context)
           return state.maybeWhen(loading: () {
             return CircleAvatar(
               backgroundColor: Colors.grey.shade400,

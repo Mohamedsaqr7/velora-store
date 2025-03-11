@@ -32,20 +32,25 @@ class VeloraStore extends StatelessWidget {
               final cubit = context.read<AppCubit>();
 
               return MaterialApp(
-                title: 'Velora Store',
-                debugShowCheckedModeBanner: EnvVariable.instance.debugMood,
-                theme: cubit.isDark ? themeLight() : themeDark(),
-                locale: Locale(cubit.currentLangCode),
-                supportedLocales: AppLocalizationsSetup.supportedLocales,
-                // ignore: lines_longer_than_80_chars
-                localizationsDelegates:
-                    AppLocalizationsSetup.localizationsDelegates,
-                // ignore: lines_longer_than_80_chars
-                localeResolutionCallback:
-                    AppLocalizationsSetup.localeResolutionCallback,
-                onGenerateRoute: AppRoutes.onGenerateRoute,
-                initialRoute: AppRoutes.login,
-              );
+                  title: 'Velora Store',
+                  debugShowCheckedModeBanner: EnvVariable.instance.debugMood,
+                  theme: cubit.isDark ? themeLight() : themeDark(),
+                  locale: Locale(cubit.currentLangCode),
+                  supportedLocales: AppLocalizationsSetup.supportedLocales,
+                  // ignore: lines_longer_than_80_chars
+                  localizationsDelegates:
+                      AppLocalizationsSetup.localizationsDelegates,
+                  // ignore: lines_longer_than_80_chars
+                  localeResolutionCallback:
+                      AppLocalizationsSetup.localeResolutionCallback,
+                  onGenerateRoute: AppRoutes.onGenerateRoute,
+                  initialRoute: SharedPref()
+                              .getString(SecureKeys.accessToken) !=
+                          null
+                      ? SharedPref().getString(SecureKeys.userRole) != 'admin'
+                          ? AppRoutes.homeCustomer
+                          : AppRoutes.homeAdmin
+                      : AppRoutes.login);
             });
           },
         ),

@@ -11,11 +11,12 @@ class DioFactory {
   static Dio? dio;
 
   static Dio getDio() {
-    Duration timeOut = const Duration(seconds: 30);
+    Duration timeOut = const Duration(seconds: 10);
 
     if (dio == null) {
       dio = Dio();
       dio!
+        ..options.responseType = ResponseType.json
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
       addDioHeaders();
@@ -30,11 +31,11 @@ class DioFactory {
     dio?.options.headers = {
       'Accept': 'application/json',
       'Authorization':
-          'Bearer ${await SharedPref.getSecuredString(SecureKeys.userToken)}',
+          'Bearer ${await SharedPref().getString(SecureKeys.userToken)}',
     };
   }
 
-  static  setTokenIntoHeaderAfterLogin({required String token}) {
+  static setTokenIntoHeaderAfterLogin({required String token}) {
     dio?.options.headers = {
       'Authorization': 'Bearer $token',
     };

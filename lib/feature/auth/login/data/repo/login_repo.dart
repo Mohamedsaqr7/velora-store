@@ -1,6 +1,6 @@
-
 import 'package:velora/core/networking/api_result.dart';
 import 'package:velora/core/networking/api_service.dart';
+import 'package:velora/core/networking/graphql/login_query.dart';
 import 'package:velora/feature/auth/login/data/model/login_response.dart';
 import 'package:velora/feature/auth/login/data/model/user_role_response.dart';
 
@@ -12,16 +12,16 @@ class LoginRepo {
 
   LoginRepo(this._apiService);
 
-  Future<ApiResult<LoginResponse>> login(
-      LoginRequestBody loginRequestBody) async {
+  Future<ApiResult<LoginResponseModel>> login(
+      {required LoginRequestModel loginRequestBody}) async {
     try {
-      final response = await _apiService.login(loginRequestBody);
+      final response = await _apiService.login(LoginQuery.loginQuery(model: loginRequestBody));
       return ApiResult.success(response);
     } catch (errro) {
       return ApiResult.failure(ErrorHandler.handle(errro));
     }
   }
-  
+
   // User Role
   Future<UserRoleResponse> userRole() async {
     final result = await _apiService.userRole();

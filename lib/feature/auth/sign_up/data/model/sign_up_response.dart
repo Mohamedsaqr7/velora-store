@@ -1,34 +1,44 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-
+import 'package:json_annotation/json_annotation.dart';
 
 part 'sign_up_response.g.dart';
 @JsonSerializable()
-class SignUpResponse {
-  SignUpResponse(this.data);
-  factory SignUpResponse.fromJson(Map<String, dynamic> json) =>
-      _$SignUpResponseFromJson(json);
+class SignUpResponseModel {
+  SignUpResponseModel({
+    required this.sighnUpdate,
+  });
 
-  final SignUpDataModel data;
+  factory SignUpResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$SignUpResponseModelFromJson(json);
+
+  @JsonKey(name: 'data')
+  final SignUpDateModel sighnUpdate;
 }
 
 @JsonSerializable()
-class SignUpDataModel {
-  SignUpDataModel(this.addUser);
+class SignUpDateModel {
+  SignUpDateModel({required this.addUser});
 
-  factory SignUpDataModel.fromJson(Map<String, dynamic> json) =>
-      _$SignUpDataModelFromJson(json);
+  factory SignUpDateModel.fromJson(Map<String, dynamic> json) =>
+      _$SignUpDateModelFromJson(json);
 
-  final AddUserModel addUser;
+  final AddUserModel? addUser;
 }
 
 @JsonSerializable()
 class AddUserModel {
-  AddUserModel(this.id, this.email);
+  AddUserModel({
+    required this.id,
+    required this.email,
+    required this.name,
+    required this.avatar,
+    required this.role,
+  });
 
   factory AddUserModel.fromJson(Map<String, dynamic> json) =>
       _$AddUserModelFromJson(json);
-
-  final String? id;
-  final String? email;
+  final String id;
+  final String email;
+  final String name;
+  final String avatar;
+  final String role;
 }

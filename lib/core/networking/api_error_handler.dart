@@ -3,8 +3,6 @@ import 'package:velora/core/networking/api_error_model.dart';
 
 import 'api_constants.dart';
 
-
-
 // TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
   NO_CONTENT,
@@ -125,6 +123,10 @@ class ErrorHandler implements Exception {
   late ApiErrorModel apiErrorModel;
 
   ErrorHandler.handle(dynamic error) {
+    print(
+        "⚠️ Error occurred: $error"); // ✅ اطبع الخطأ لرؤية التفاصيل في الـ Debug Console
+    print("⚠️ DioException Type: ${error.type}");
+
     if (error is DioException) {
       // dio error so its an error from response of the API or from dio itself
       apiErrorModel = _handleError(error);
@@ -147,6 +149,8 @@ ApiErrorModel _handleError(DioException error) {
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
+        print("📌 Response Data: ${error.response?.data}");
+
         return ApiErrorModel.fromJson(error.response!.data);
       } else {
         return DataSource.DEFAULT.getFailure();
