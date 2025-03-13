@@ -1,5 +1,5 @@
 
-import '../../../feature/auth/login/data/model/login_request_body.dart';
+import '../../../../feature/auth/login/data/model/login_request_body.dart';
 
 class LoginQuery {
   LoginQuery._();
