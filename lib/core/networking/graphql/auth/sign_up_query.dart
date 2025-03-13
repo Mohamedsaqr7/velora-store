@@ -1,5 +1,5 @@
 
-import '../../../feature/auth/sign_up/data/model/sign_up_request_body.dart';
+import '../../../../feature/auth/sign_up/data/model/sign_up_request_body.dart';
 
 class SignUpQuery {
   SignUpQuery._();

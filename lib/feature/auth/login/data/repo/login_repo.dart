@@ -1,6 +1,6 @@
 import 'package:velora/core/networking/api_result.dart';
 import 'package:velora/core/networking/api_service.dart';
-import 'package:velora/core/networking/graphql/login_query.dart';
+import 'package:velora/core/networking/graphql/auth/login_query.dart';
 import 'package:velora/feature/auth/login/data/model/login_response.dart';
 import 'package:velora/feature/auth/login/data/model/user_role_response.dart';
 
