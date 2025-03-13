@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/context/context_extension.dart';
 
 import '../../../../core/common/widgets/admin_app_bar.dart';
-import 'component/create/add_category.dart';
+import 'component/create/add_category_body.dart';
 
 class AddCategoriesScreen extends StatelessWidget {
   const AddCategoriesScreen({super.key});
@@ -16,7 +16,7 @@ class AddCategoriesScreen extends StatelessWidget {
             title: 'Categories',
             backgroundColor: context.color.mainColor!.withOpacity(1)),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
+          padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 30.h),
           child: AddCategoriesBody(),
         ));
   }

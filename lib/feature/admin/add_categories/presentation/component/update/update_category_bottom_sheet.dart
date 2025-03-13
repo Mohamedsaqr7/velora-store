@@ -1,27 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:velora/core/common/widgets/custom_button.dart';
+import 'package:velora/core/common/widgets/custom_text_field.dart';
 import 'package:velora/core/context/context_extension.dart';
-import 'package:velora/core/style/fonts/font_family.dart';
-import 'package:velora/core/style/fonts/font_weight.dart';
-import 'package:velora/core/style/theme/spacing.dart';
-import 'package:velora/feature/admin/add_categories/presentation/component/create/category_upload_image.dart';
+import 'package:velora/feature/admin/add_categories/presentation/component/update/update_upload_image.dart';
 
-import '../../../../../../core/common/widgets/custom_button.dart';
-import '../../../../../../core/common/widgets/custom_text_field.dart';
 import '../../../../../../core/common/widgets/text_app.dart';
+import '../../../../../../core/style/fonts/font_family.dart';
+import '../../../../../../core/style/fonts/font_weight.dart';
+import '../../../../../../core/style/theme/spacing.dart';
+import '../create/category_upload_image.dart';
 
-class CreateCategoryBottomSheet extends StatefulWidget {
-  const CreateCategoryBottomSheet({super.key});
+class UpdateCategoryBottomSheet extends StatelessWidget {
+  UpdateCategoryBottomSheet({super.key});
 
-  @override
-  State<CreateCategoryBottomSheet> createState() =>
-      _CreateCategoryBottomSheetState();
-}
+  final formkey = GlobalKey<FormState>();
+  TextEditingController nameCategoryController = TextEditingController();
 
-final formkey = GlobalKey<FormState>();
-TextEditingController nameCategoryController = TextEditingController();
-
-class _CreateCategoryBottomSheetState extends State<CreateCategoryBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -32,7 +27,7 @@ class _CreateCategoryBottomSheetState extends State<CreateCategoryBottomSheet> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextApp(
-              text: "create categories",
+              text: "update category",
               theme: context.textStyle.copyWith(
                   fontSize: 18.sp,
                   fontFamily: FontFamily.geLocalozedFontFamily(),
@@ -43,7 +38,7 @@ class _CreateCategoryBottomSheetState extends State<CreateCategoryBottomSheet> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextApp(
-                  text: 'Add a photo',
+                  text: 'Update a photo',
                   theme: context.textStyle.copyWith(
                     fontSize: 16.sp,
                     fontWeight: FontWeightHelper.medium,
@@ -63,10 +58,10 @@ class _CreateCategoryBottomSheetState extends State<CreateCategoryBottomSheet> {
               ],
             ),
             verticalSpace(10),
-            CategoryUploadImage(),
+            UpdateUploadImage(),
             verticalSpace(10),
             TextApp(
-              text: 'Enter the Category Name',
+              text: 'Update the Category Name',
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeightHelper.medium,

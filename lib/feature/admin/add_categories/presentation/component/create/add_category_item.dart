@@ -7,8 +7,10 @@ import 'package:velora/core/context/context_extension.dart';
 import 'package:velora/core/style/fonts/font_family.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 
+import '../../../../../../core/common/bottom_sheet/custom_bottom_sheet.dart';
 import '../../../../../../core/common/widgets/text_app.dart';
 import '../../../../../../core/style/fonts/font_weight.dart';
+import '../update/update_category_bottom_sheet.dart';
 
 class AddCategoryItem extends StatelessWidget {
   const AddCategoryItem(
@@ -57,7 +59,11 @@ class AddCategoryItem extends StatelessWidget {
                     ),
                     verticalSpace(20),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        CustomBottomSheet.showModalBottomSheetContainer(
+                            context: context,
+                            widget: UpdateCategoryBottomSheet());
+                      },
                       icon: Icon(
                         Icons.edit,
                         size: 25.sp,
