@@ -3,8 +3,12 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:velora/core/networking/api_service.dart';
 import 'package:velora/core/networking/dio_factory.dart';
+import 'package:velora/feature/admin/dashboard/presentation/logic/categories_number_cubit/categories_cubit.dart';
+import 'package:velora/feature/admin/dashboard/presentation/logic/products_number_cubit/product_cubit.dart';
+import 'package:velora/feature/admin/dashboard/presentation/logic/users_number_cubit/users_cubit.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
 
+import '../../feature/admin/dashboard/data/repo/dashboard_repo.dart';
 import '../../feature/auth/login/data/repo/login_repo.dart';
 import '../../feature/auth/login/logic/login/login_cubit.dart';
 import '../../feature/auth/sign_up/data/repo/sign_up_repo.dart';
@@ -33,5 +37,18 @@ Future<void> setupInjection() async {
     )
     //signup(repo & cubit)
     ..registerFactory<SignUpRepo>(() => SignUpRepo(getIt<ApiService>()))
-    ..registerFactory<SignUpCubit>(() => SignUpCubit(getIt<SignUpRepo>()));
+    ..registerFactory<SignUpCubit>(() => SignUpCubit(getIt<SignUpRepo>()))
+    //dashboard
+    ..registerLazySingleton<DashboardRepo>(
+      () => DashboardRepo(getIt<ApiService>()),
+    )
+    ..registerFactory<ProductCubit>(
+      () => ProductCubit(getIt<DashboardRepo>()),
+    )
+    ..registerFactory<CategoriesCubit>(
+      () => CategoriesCubit(getIt<DashboardRepo>()),
+    )
+    ..registerFactory<UsersCubit>(
+      () => UsersCubit(getIt<DashboardRepo>()),
+    );
 }
