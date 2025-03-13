@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:velora/core/di/dependency_injection.dart';
 import 'package:velora/core/routes/base_route.dart';
-import 'package:velora/feature/admin/a.dart';
+import 'package:velora/feature/admin/home_admin/home_admin_screen.dart';
 import 'package:velora/feature/auth/login/data/repo/login_repo.dart';
 import 'package:velora/feature/auth/login/presentation/login_screen.dart';
 import 'package:velora/feature/auth/sign_up/data/repo/sign_up_repo.dart';
@@ -37,15 +37,15 @@ class AppRoutes {
                 create: (context) => UploadImageCubit(getIt<UploadImageRepo>()),
               ),
               BlocProvider(
-                  create: (context) => SignUpCubit(getIt<SignUpRepo>()),
-                  ),
+                create: (context) => SignUpCubit(getIt<SignUpRepo>()),
+              ),
             ],
             child: const SignupScreen(),
           ),
         );
       case homeAdmin:
         return MaterialPageRoute(
-          builder: (_) => const adm(),
+          builder: (_) => const HomeAdminScreen(),
         );
       case homeCustomer:
         return MaterialPageRoute(
