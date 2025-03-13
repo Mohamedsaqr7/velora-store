@@ -18,25 +18,25 @@ class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext contexdt) {
     return BlocConsumer<LoginCubit, LoginState>(
-     listener: (context, state) {
-          state.whenOrNull(
-            failure: (message) {
-              ShowToast.showFailureToast(
-                context.translate(LangKeys.loggedError),
-              );
-            },
-            success: (userRole) {
-              ShowToast.showSuccessToast(
-                context.translate(LangKeys.loggedSuccessfully),
-              );
-              if (userRole == 'admin') {
-                context.pushNamedAndRemoveUntil(AppRoutes.homeAdmin);
-              } else if(userRole=='customer'){
-                context.pushNamedAndRemoveUntil(AppRoutes.homeCustomer);
-              }
-            },
-          );
-        },
+      listener: (context, state) {
+        state.whenOrNull(
+          failure: (message) {
+            ShowToast.showFailureToast(
+              context.translate(LangKeys.loggedError),
+            );
+          },
+          success: (userRole) {
+            ShowToast.showSuccessToast(
+              context.translate(LangKeys.loggedSuccessfully),
+            );
+            if (userRole == 'admin') {
+              context.pushNamedAndRemoveUntil(AppRoutes.homeAdmin);
+            } else if (userRole == 'customer') {
+              context.pushNamedAndRemoveUntil(AppRoutes.homeCustomer);
+            }
+          },
+        );
+      },
       builder: (context, state) {
         return CustomFadeInRight(
           duration: 400,
