@@ -14,14 +14,11 @@ import '../update/update_category_bottom_sheet.dart';
 
 class AddCategoryItem extends StatelessWidget {
   const AddCategoryItem(
-      {super.key,
-      required this.name,
-      required this.image,
-      required this.categoryId});
+      {super.key, required this.name, required this.image, this.categoryId});
 
   final String name;
   final String image;
-  final String categoryId;
+  final String? categoryId;
 
   @override
   Widget build(BuildContext context) {

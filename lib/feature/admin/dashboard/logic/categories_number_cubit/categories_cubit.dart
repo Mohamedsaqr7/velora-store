@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:velora/feature/admin/dashboard/data/repo/dashboard_repo.dart';
 
-import '../../../../../../core/language/lang_keys.dart';
+import '../../../../../core/language/lang_keys.dart';
 
 part 'categories_state.dart';
 part 'categories_cubit.freezed.dart';

@@ -3,11 +3,14 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:velora/core/networking/api_service.dart';
 import 'package:velora/core/networking/dio_factory.dart';
-import 'package:velora/feature/admin/dashboard/presentation/logic/categories_number_cubit/categories_cubit.dart';
-import 'package:velora/feature/admin/dashboard/presentation/logic/products_number_cubit/product_cubit.dart';
-import 'package:velora/feature/admin/dashboard/presentation/logic/users_number_cubit/users_cubit.dart';
+import 'package:velora/feature/admin/add_categories/logic/create_category/create_category_cubit.dart';
+import 'package:velora/feature/admin/add_categories/logic/get_category/get_categories_cubit.dart';
+import 'package:velora/feature/admin/dashboard/logic/categories_number_cubit/categories_cubit.dart';
+import 'package:velora/feature/admin/dashboard/logic/products_number_cubit/product_cubit.dart';
+import 'package:velora/feature/admin/dashboard/logic/users_number_cubit/users_cubit.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
 
+import '../../feature/admin/add_categories/data/repos/cateories_admin_repo.dart';
 import '../../feature/admin/dashboard/data/repo/dashboard_repo.dart';
 import '../../feature/auth/login/data/repo/login_repo.dart';
 import '../../feature/auth/login/logic/login/login_cubit.dart';
@@ -50,5 +53,13 @@ Future<void> setupInjection() async {
     )
     ..registerFactory<UsersCubit>(
       () => UsersCubit(getIt<DashboardRepo>()),
-    );
+    )
+    //get category
+    ..registerFactory<CategoreisAdminRepo>(
+        () => CategoreisAdminRepo(getIt<ApiService>()))
+    ..registerFactory<GetCategoriesCubit>(
+        () => GetCategoriesCubit(getIt<CategoreisAdminRepo>()))
+    //create category
+    ..registerFactory<CreateCategoryCubit>(
+        () => CreateCategoryCubit(getIt<CategoreisAdminRepo>()));
 }

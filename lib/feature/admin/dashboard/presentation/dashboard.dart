@@ -4,12 +4,12 @@ import 'package:velora/core/common/widgets/admin_app_bar.dart';
 import 'package:velora/core/context/context_extension.dart';
 import 'package:velora/core/di/dependency_injection.dart';
 import 'package:velora/feature/admin/dashboard/data/repo/dashboard_repo.dart';
-import 'package:velora/feature/admin/dashboard/presentation/logic/categories_number_cubit/categories_cubit.dart';
-import 'package:velora/feature/admin/dashboard/presentation/logic/products_number_cubit/product_cubit.dart';
-import 'package:velora/feature/admin/dashboard/presentation/logic/users_number_cubit/users_cubit.dart';
+import 'package:velora/feature/admin/dashboard/logic/categories_number_cubit/categories_cubit.dart';
+import 'package:velora/feature/admin/dashboard/logic/products_number_cubit/product_cubit.dart';
+import 'package:velora/feature/admin/dashboard/logic/users_number_cubit/users_cubit.dart';
 import 'package:velora/feature/admin/home_admin/home_admin_screen.dart';
 
-import 'presentation/component/dashboard_body.dart';
+import 'component/dashboard_body.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
