@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/context/context_extension.dart';
 import 'package:velora/core/di/dependency_injection.dart';
+import 'package:velora/feature/admin/add_categories/logic/delete_category/delete_category_cubit.dart';
 import 'package:velora/feature/admin/add_categories/logic/get_category/get_categories_cubit.dart';
 
 import '../../../../core/common/widgets/admin_app_bar.dart';
@@ -18,11 +19,10 @@ class AddCategoriesScreen extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<GetCategoriesCubit>()..getCategories(),
         ),
-        // BlocProvider(
-          // create: (context) => SubjectBloc(),
-        // ),
+        BlocProvider(
+          create: (context) => getIt<DeleteCategoryCubit>(),
+        ),
       ],
-    
       child: Scaffold(
           appBar: AdminAppBar(
               isMain: true,

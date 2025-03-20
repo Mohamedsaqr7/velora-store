@@ -21,8 +21,9 @@ class CreateCategoryCubit extends Cubit<CreateCategoryState> {
   Future<void> createNewCategory() async {
     emit(const CreateCategoryState.loading());
     final result = await _adminRepo.createCategory(
-        createCategoryModel: CreateCategoryRequestModel(
-            name: nameCategoryController.text, image: categoryImage));
+      createCategoryModel: CreateCategoryRequestModel(
+          name: nameCategoryController.text, image: categoryImage),
+    );
     result.when(
       success: (response) => emit(const CreateCategoryState.success()),
       failure: (e) {

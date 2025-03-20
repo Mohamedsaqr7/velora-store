@@ -14,7 +14,7 @@ import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 import 'package:velora/feature/admin/add_categories/logic/create_category/create_category_cubit.dart';
 import 'package:velora/feature/admin/add_categories/logic/get_category/get_categories_cubit.dart';
-import 'package:velora/feature/admin/add_categories/presentation/component/create/add_category_item.dart';
+import 'package:velora/feature/admin/add_categories/presentation/component/add_category_item.dart';
 import 'package:velora/feature/admin/add_categories/presentation/component/create/create_category_bottom_sheet.dart';
 
 class AddCategoriesBody extends StatelessWidget {
@@ -37,21 +37,22 @@ class AddCategoriesBody extends StatelessWidget {
             CustomButton(
               onPressed: () {
                 CustomBottomSheet.showModalBottomSheetContainer(
-                    context: context,
-                    widget: MultiBlocProvider(
-                      providers: [
-                        BlocProvider(
-                          create: (context) => getIt<CreateCategoryCubit>(),
-                        ),
-                        BlocProvider(
-                          create: (context) => getIt<UploadImageCubit>(),
-                        ),
-                      ],
-                      child: CreateCategoryBottomSheet(),
-                    ),
-                    whenComplete: () {
-                      context.read<GetCategoriesCubit>()..getCategories();
-                    });
+                  context: context,
+                  widget: MultiBlocProvider(
+                    providers: [
+                      BlocProvider(
+                        create: (context) => getIt<CreateCategoryCubit>(),
+                      ),
+                      BlocProvider(
+                        create: (context) => getIt<UploadImageCubit>(),
+                      ),
+                    ],
+                    child: CreateCategoryBottomSheet(),
+                  ),
+                  whenComplete: () {
+                    context.read<GetCategoriesCubit>()..getCategories();
+                  },
+                );
               },
               text: 'add',
               width: 90.w,

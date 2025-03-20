@@ -4,7 +4,9 @@ import 'package:get_it/get_it.dart';
 import 'package:velora/core/networking/api_service.dart';
 import 'package:velora/core/networking/dio_factory.dart';
 import 'package:velora/feature/admin/add_categories/logic/create_category/create_category_cubit.dart';
+import 'package:velora/feature/admin/add_categories/logic/delete_category/delete_category_cubit.dart';
 import 'package:velora/feature/admin/add_categories/logic/get_category/get_categories_cubit.dart';
+import 'package:velora/feature/admin/add_categories/logic/update_category/update_category_cubit.dart';
 import 'package:velora/feature/admin/dashboard/logic/categories_number_cubit/categories_cubit.dart';
 import 'package:velora/feature/admin/dashboard/logic/products_number_cubit/product_cubit.dart';
 import 'package:velora/feature/admin/dashboard/logic/users_number_cubit/users_cubit.dart';
@@ -61,5 +63,11 @@ Future<void> setupInjection() async {
         () => GetCategoriesCubit(getIt<CategoreisAdminRepo>()))
     //create category
     ..registerFactory<CreateCategoryCubit>(
-        () => CreateCategoryCubit(getIt<CategoreisAdminRepo>()));
+        () => CreateCategoryCubit(getIt<CategoreisAdminRepo>()))
+    //delete category
+    ..registerFactory<DeleteCategoryCubit>(
+        () => DeleteCategoryCubit(getIt<CategoreisAdminRepo>()))
+    //update category
+    ..registerFactory<UpdateCategoryCubit>(
+        () => UpdateCategoryCubit(getIt<CategoreisAdminRepo>()));
 }
