@@ -8,9 +8,9 @@ import '../../../language/lang_keys.dart';
 
 
 class UploadImageCubit extends Cubit<UploadImageState> {
-  UploadImageCubit(this.uploadImageRepo)
+  UploadImageCubit(this._uploadImageRepo)
       : super(const UploadImageState.initial());
-  final UploadImageRepo uploadImageRepo;
+  final UploadImageRepo _uploadImageRepo;
 
   String uploadImageUrl = '';
 
@@ -21,7 +21,7 @@ class UploadImageCubit extends Cubit<UploadImageState> {
     if (image == null) return;
     // upload the image
     emit(const UploadImageState.loading());
-    final result = await uploadImageRepo.uploadImage(imageFile: image);
+    final result = await _uploadImageRepo.uploadImage(imageFile: image);
     result.when(
       success: (data) {
         uploadImageUrl = data.location??'';

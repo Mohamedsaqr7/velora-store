@@ -6,9 +6,9 @@ import 'package:velora/core/constants/app_assets.dart';
 import 'package:velora/core/context/context_extension.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 import 'package:velora/feature/admin/dashboard/presentation/component/dashboard_container.dart';
-import 'package:velora/feature/admin/dashboard/presentation/logic/categories_number_cubit/categories_cubit.dart';
-import 'package:velora/feature/admin/dashboard/presentation/logic/products_number_cubit/product_cubit.dart';
-import 'package:velora/feature/admin/dashboard/presentation/logic/users_number_cubit/users_cubit.dart';
+import 'package:velora/feature/admin/dashboard/logic/categories_number_cubit/categories_cubit.dart';
+import 'package:velora/feature/admin/dashboard/logic/products_number_cubit/product_cubit.dart';
+import 'package:velora/feature/admin/dashboard/logic/users_number_cubit/users_cubit.dart';
 
 class DashboardBody extends StatelessWidget {
   const DashboardBody({super.key});

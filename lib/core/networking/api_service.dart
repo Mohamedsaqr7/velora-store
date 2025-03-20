@@ -6,6 +6,8 @@ import 'package:velora/feature/auth/login/data/model/login_request_body.dart';
 import 'package:velora/feature/auth/login/data/model/login_response.dart';
 import 'package:velora/feature/auth/sign_up/data/model/sign_up_response.dart';
 
+import '../../feature/admin/add_categories/data/models/create_categories_response.dart';
+import '../../feature/admin/add_categories/data/models/get_all_categories_response.dart';
 import '../../feature/admin/dashboard/data/models/categories_number_response.dart';
 import '../../feature/admin/dashboard/data/models/products_number_response.dart';
 import '../../feature/admin/dashboard/data/models/users_number_response.dart';
@@ -51,5 +53,25 @@ abstract class ApiService {
   @POST(ApiConstants.graphQl)
   Future<UsersNumberResponse> numberOfUsers(
     @Body() Map<String, dynamic> query,
+  );
+
+  @POST(ApiConstants.graphQl)
+  Future<CategoriesResponseModel> getCategories(
+    @Body() Map<String, dynamic> body,
+  );
+
+  @POST(ApiConstants.graphQl)
+  Future<CreateCategoryResponse> createCategory(
+    @Body() Map<String, dynamic> mutation,
+  );
+
+  @POST(ApiConstants.graphQl)
+  Future<void> deleteCategory(
+    @Body() Map<String, dynamic> mutation,
+  );
+  
+  @POST(ApiConstants.graphQl)
+  Future<void> updateCategory(
+    @Body() Map<String, dynamic> mutation,
   );
 }

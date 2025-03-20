@@ -10,7 +10,7 @@ import 'package:velora/core/style/fonts/font_family.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/feature/admin/add_notifications/presentation/add_notifications.dart';
 import 'package:velora/feature/admin/add_products/presentation/add_product_screen.dart';
-import 'package:velora/feature/admin/dashboard/dashboard.dart';
+import 'package:velora/feature/admin/dashboard/presentation/dashboard.dart';
 import 'package:velora/feature/admin/users/presentation/users_screen.dart';
 
 import '../../../feature/admin/add_categories/presentation/add_categories_screen.dart';

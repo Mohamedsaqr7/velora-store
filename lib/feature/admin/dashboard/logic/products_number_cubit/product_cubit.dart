@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../../../core/language/lang_keys.dart';
-import '../../../data/repo/dashboard_repo.dart';
+import '../../../../../core/language/lang_keys.dart';
+import '../../data/repo/dashboard_repo.dart';
 
 part 'product_state.dart';
 part 'product_cubit.freezed.dart';
