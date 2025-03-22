@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 import 'package:velora/feature/admin/add_products/presentation/components/create/create_product.dart';
 import 'package:velora/feature/admin/add_products/presentation/components/product_admin_item.dart';
+import 'package:velora/feature/admin/add_products/presentation/components/update/update_product_images.dart';
 
 class AddProductBody extends StatelessWidget {
   const AddProductBody({super.key});

@@ -8,6 +8,9 @@ import 'package:velora/core/style/fonts/font_family.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 
+import '../../../../../core/common/bottom_sheet/custom_bottom_sheet.dart';
+import 'update/update_product_bottom_sheet.dart';
+
 class ProductAdminItem extends StatelessWidget {
   const ProductAdminItem(
       {super.key,
@@ -40,7 +43,11 @@ class ProductAdminItem extends StatelessWidget {
               ),
               IconButton(
                 padding: EdgeInsets.zero,
-                onPressed: () {},
+                onPressed: () {
+                  CustomBottomSheet.showModalBottomSheetContainer(
+                    context:context,
+                  widget: UpdateProductBottomSheet());
+                },
                 icon: Icon(
                   Icons.edit,
                   color: Colors.green,

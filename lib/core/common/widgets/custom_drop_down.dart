@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
@@ -22,7 +21,7 @@ class CustomCreateDropDown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 58,
+      height: 58.h,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
         border: Border.all(
@@ -33,14 +32,14 @@ class CustomCreateDropDown extends StatelessWidget {
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-          iconSize: 30,
+          iconSize: 30.sp,
           borderRadius: BorderRadius.circular(12),
           dropdownColor: ColorsDark.blueDark,
           style: TextStyle(
             color: Colors.black,
             fontSize: 14.sp,
             fontWeight: FontWeightHelper.medium,
-            fontFamily: FontFamily.poppinsEnglish,
+            fontFamily: FontFamily.geLocalozedFontFamily(),
           ),
           elevation: 16,
           icon: const Icon(
@@ -55,7 +54,7 @@ class CustomCreateDropDown extends StatelessWidget {
             theme: context.textStyle.copyWith(
               fontSize: 14.sp,
               color: Colors.white,
-              fontFamily: FontFamily.poppinsEnglish,
+              fontFamily: FontFamily.geLocalozedFontFamily(),
             ),
           ),
           items: items.map<DropdownMenuItem<String>>((String value) {
