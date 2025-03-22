@@ -42,7 +42,7 @@ class AddCategoryItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Spacer(),
+                 Spacer(),
                 TextApp(
                   text: name,
                   theme: context.textStyle.copyWith(

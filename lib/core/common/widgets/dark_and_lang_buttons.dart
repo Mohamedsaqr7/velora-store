@@ -16,42 +16,45 @@ class DarkAndLangButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<AppCubit>();
     return BlocBuilder(
-        bloc: cubit,
-        builder: (context, state) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              CustomFadeInRight(
-                duration: 400,
-                child: CustomLinearButton(
-                  onPressed: cubit.changeAppThemeMode,
-                  child: Icon(
-                    cubit.isDark ? Icons.light_mode : Icons.dark_mode,
-                    color: Colors.white,
+      bloc: cubit,
+      builder: (context, state) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CustomFadeInRight(
+              duration: 400,
+              child: CustomLinearButton(
+                onPressed: cubit.changeAppThemeMode,
+                child: Icon(
+                  cubit.isDark ? Icons.light_mode : Icons.dark_mode,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            CustomFadeInLeft(
+              duration: 400,
+              child: CustomLinearButton(
+                height: 40.h,
+                width: 100.w,
+                onPressed: () {
+                  if (AppLocalizations.of(context)!.isEnLocale) {
+                    cubit.toArabic();
+                  } else {
+                    cubit.toEnglish();
+                  }
+                },
+                child: TextApp(
+                  text: context.translate(LangKeys.language),
+                  theme: context.textStyle.copyWith(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              CustomFadeInLeft(
-                duration: 400,
-                child: CustomLinearButton(
-                    height: 40.h,
-                    width: 100.w,
-                    onPressed: () {
-                      if (AppLocalizations.of(context)!.isEnLocale) {
-                        cubit.toArabic();
-                      } else {
-                        cubit.toEnglish();
-                      }
-                    },
-                    child: TextApp(
-                        text: context.translate(LangKeys.language),
-                        theme: context.textStyle.copyWith(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.bold,
-                        ))),
-              )
-            ],
-          );
-        });
+            )
+          ],
+        );
+      },
+    );
   }
 }
