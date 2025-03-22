@@ -51,7 +51,7 @@ class AddCategoryItem extends StatelessWidget {
                     fontFamily: FontFamily.geLocalozedFontFamily(),
                   ),
                 ),
-                const Spacer(),
+                 Spacer(),
                 Row(
                   children: [
                     IconButton(
