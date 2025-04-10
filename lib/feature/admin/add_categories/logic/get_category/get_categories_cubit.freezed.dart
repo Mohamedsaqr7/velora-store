@@ -20,7 +20,7 @@ mixin _$GetCategoriesState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Category?>? categoriesDataList) success,
+    required TResult Function(List<Category> categoriesDataList) success,
     required TResult Function(ErrorHandler errorHandler) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$GetCategoriesState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Category?>? categoriesDataList)? success,
+    TResult? Function(List<Category> categoriesDataList)? success,
     TResult? Function(ErrorHandler errorHandler)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$GetCategoriesState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category?>? categoriesDataList)? success,
+    TResult Function(List<Category> categoriesDataList)? success,
     TResult Function(ErrorHandler errorHandler)? failure,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Category?>? categoriesDataList) success,
+    required TResult Function(List<Category> categoriesDataList) success,
     required TResult Function(ErrorHandler errorHandler) failure,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Category?>? categoriesDataList)? success,
+    TResult? Function(List<Category> categoriesDataList)? success,
     TResult? Function(ErrorHandler errorHandler)? failure,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category?>? categoriesDataList)? success,
+    TResult Function(List<Category> categoriesDataList)? success,
     TResult Function(ErrorHandler errorHandler)? failure,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Category?>? categoriesDataList) success,
+    required TResult Function(List<Category> categoriesDataList) success,
     required TResult Function(ErrorHandler errorHandler) failure,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Category?>? categoriesDataList)? success,
+    TResult? Function(List<Category> categoriesDataList)? success,
     TResult? Function(ErrorHandler errorHandler)? failure,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category?>? categoriesDataList)? success,
+    TResult Function(List<Category> categoriesDataList)? success,
     TResult Function(ErrorHandler errorHandler)? failure,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Category?>? categoriesDataList});
+  $Res call({List<Category> categoriesDataList});
 }
 
 /// @nodoc
@@ -334,13 +334,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categoriesDataList = freezed,
+    Object? categoriesDataList = null,
   }) {
     return _then(_$SuccessImpl(
-      freezed == categoriesDataList
+      null == categoriesDataList
           ? _value._categoriesDataList
           : categoriesDataList // ignore: cast_nullable_to_non_nullable
-              as List<Category?>?,
+              as List<Category>,
     ));
   }
 }
@@ -348,18 +348,16 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(final List<Category?>? categoriesDataList)
+  const _$SuccessImpl(final List<Category> categoriesDataList)
       : _categoriesDataList = categoriesDataList;
 
-  final List<Category?>? _categoriesDataList;
+  final List<Category> _categoriesDataList;
   @override
-  List<Category?>? get categoriesDataList {
-    final value = _categoriesDataList;
-    if (value == null) return null;
+  List<Category> get categoriesDataList {
     if (_categoriesDataList is EqualUnmodifiableListView)
       return _categoriesDataList;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_categoriesDataList);
   }
 
   @override
@@ -391,7 +389,7 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Category?>? categoriesDataList) success,
+    required TResult Function(List<Category> categoriesDataList) success,
     required TResult Function(ErrorHandler errorHandler) failure,
   }) {
     return success(categoriesDataList);
@@ -402,7 +400,7 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Category?>? categoriesDataList)? success,
+    TResult? Function(List<Category> categoriesDataList)? success,
     TResult? Function(ErrorHandler errorHandler)? failure,
   }) {
     return success?.call(categoriesDataList);
@@ -413,7 +411,7 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category?>? categoriesDataList)? success,
+    TResult Function(List<Category> categoriesDataList)? success,
     TResult Function(ErrorHandler errorHandler)? failure,
     required TResult orElse(),
   }) {
@@ -462,10 +460,10 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements GetCategoriesState {
-  const factory _Success(final List<Category?>? categoriesDataList) =
+  const factory _Success(final List<Category> categoriesDataList) =
       _$SuccessImpl;
 
-  List<Category?>? get categoriesDataList;
+  List<Category> get categoriesDataList;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -538,7 +536,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Category?>? categoriesDataList) success,
+    required TResult Function(List<Category> categoriesDataList) success,
     required TResult Function(ErrorHandler errorHandler) failure,
   }) {
     return failure(errorHandler);
@@ -549,7 +547,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Category?>? categoriesDataList)? success,
+    TResult? Function(List<Category> categoriesDataList)? success,
     TResult? Function(ErrorHandler errorHandler)? failure,
   }) {
     return failure?.call(errorHandler);
@@ -560,7 +558,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Category?>? categoriesDataList)? success,
+    TResult Function(List<Category> categoriesDataList)? success,
     TResult Function(ErrorHandler errorHandler)? failure,
     required TResult orElse(),
   }) {

@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
@@ -21,7 +22,7 @@ class CustomCreateDropDown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 58.h,
+      height: 58,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
         border: Border.all(
@@ -32,7 +33,7 @@ class CustomCreateDropDown extends StatelessWidget {
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-          iconSize: 30.sp,
+          iconSize: 30,
           borderRadius: BorderRadius.circular(12),
           dropdownColor: ColorsDark.blueDark,
           style: TextStyle(
@@ -54,7 +55,7 @@ class CustomCreateDropDown extends StatelessWidget {
             theme: context.textStyle.copyWith(
               fontSize: 14.sp,
               color: Colors.white,
-              fontFamily: FontFamily.geLocalozedFontFamily(),
+            fontFamily: FontFamily.geLocalozedFontFamily(),
             ),
           ),
           items: items.map<DropdownMenuItem<String>>((String value) {
@@ -72,6 +73,81 @@ class CustomCreateDropDown extends StatelessWidget {
           }).toList(),
         ),
       ),
+    );
+  }
+}
+
+
+class CustomDropdownButtonFormField extends StatefulWidget {
+  const CustomDropdownButtonFormField({
+    required this.hint,
+    required this.vaidationText,
+    required this.items,
+    super.key,
+    this.onChanged,
+    this.chosenValue,
+  });
+  final String hint;
+  final String vaidationText;
+  final List<String> items;
+  final void Function(String?)? onChanged;
+  final String? chosenValue;
+  @override
+  State<CustomDropdownButtonFormField> createState() =>
+      _CustomDropdownButtonFormFieldState();
+}
+
+class _CustomDropdownButtonFormFieldState
+    extends State<CustomDropdownButtonFormField> {
+  String? value;
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButtonFormField(
+      hint: Text(
+        widget.hint,
+        style: const TextStyle(color: Colors.white),
+      ),
+      value: value ?? widget.chosenValue,
+      iconSize: 30.r,
+      iconEnabledColor: context.color.textColor,
+      style: context.textStyle.copyWith(
+        fontSize: 14.sp,
+        color: context.color.textColor,
+      ),
+      validator: (value) {
+        if (value == null) {
+          return widget.vaidationText;
+        }
+        return null;
+      },
+      iconDisabledColor: Colors.transparent,
+      dropdownColor: context.color.textFormBorder,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+          borderSide: BorderSide(color: context.color.textFormBorder!),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+          borderSide: BorderSide(color: context.color.textFormBorder!),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+          borderSide: const BorderSide(color: Colors.red),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+          borderSide: const BorderSide(color: Colors.red),
+        ),
+      ),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      items: widget.items
+          .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+          .toList(),
+      onChanged: widget.onChanged,
     );
   }
 }

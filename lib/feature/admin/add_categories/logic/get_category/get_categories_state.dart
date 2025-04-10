@@ -6,6 +6,6 @@ class GetCategoriesState with _$GetCategoriesState {
 
   const factory GetCategoriesState.loading() = _Loading;
   const factory GetCategoriesState.success(
-      List<Category?>? categoriesDataList) = _Success;
+      List<Category> categoriesDataList) = _Success;
   const factory GetCategoriesState.failure(ErrorHandler errorHandler) = _Error;
 }

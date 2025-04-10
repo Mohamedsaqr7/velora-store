@@ -42,7 +42,7 @@ class CategoryUploadImage extends StatelessWidget {
               color: Colors.grey.withOpacity(0.4),
             ),
             child: const Center(
-              child: SpinKitCircle(
+              child: SpinKitFadingCube(
                 color: Colors.white,
               ),
             ),

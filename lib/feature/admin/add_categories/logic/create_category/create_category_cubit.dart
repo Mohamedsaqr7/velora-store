@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:velora/feature/admin/add_categories/data/models/create_categories_request_body.dart';
-import 'package:velora/feature/admin/add_categories/data/models/create_categories_response.dart';
 
 import '../../../../../core/networking/api_error_handler.dart';
 import '../../data/repos/cateories_admin_repo.dart';

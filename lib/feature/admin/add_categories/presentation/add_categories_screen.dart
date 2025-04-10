@@ -7,7 +7,7 @@ import 'package:velora/feature/admin/add_categories/logic/delete_category/delete
 import 'package:velora/feature/admin/add_categories/logic/get_category/get_categories_cubit.dart';
 
 import '../../../../core/common/widgets/admin_app_bar.dart';
-import 'component/create/add_category_body.dart';
+import 'add_category_body.dart';
 
 class AddCategoriesScreen extends StatelessWidget {
   const AddCategoriesScreen({super.key});

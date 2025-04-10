@@ -14,11 +14,12 @@ class DeleteCategoryCubit extends Cubit<DeleteCategoryState> {
   final CategoreisAdminRepo _repo;
 
 
-  Future<void> deleteCategory({required String categoryId}
-  ) async {
-    emit(DeleteCategoryState.loading(id: categoryId));
 
-    final result = await _repo.deleteCategory(categoryId: categoryId);
+  Future<void> deleteCategory({ String ?categoryId}
+  ) async {
+    emit(DeleteCategoryState.loading(id: categoryId??''));
+
+    final result = await _repo.deleteCategory(categoryId: categoryId??'');
 
     result.when(
       success: (_) {

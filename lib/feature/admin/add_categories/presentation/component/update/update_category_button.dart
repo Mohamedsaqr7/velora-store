@@ -56,7 +56,7 @@ class UpdateCategoryButton extends StatelessWidget {
               lastRadius: 20,
               threeRadius: 20,
               textColor: context.color.bluePinkDark,
-              text: 'Create a new category',
+              text: 'Update category',
               width: MediaQuery.of(context).size.width,
               height: 50.h,
             );

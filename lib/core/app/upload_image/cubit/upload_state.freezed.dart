@@ -21,6 +21,7 @@ mixin _$UploadImageState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function(int index) loadingImageAtIndex,
     required TResult Function() delete,
     required TResult Function(String error) failure,
   }) =>
@@ -30,6 +31,7 @@ mixin _$UploadImageState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function(int index)? loadingImageAtIndex,
     TResult? Function()? delete,
     TResult? Function(String error)? failure,
   }) =>
@@ -39,6 +41,7 @@ mixin _$UploadImageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function(int index)? loadingImageAtIndex,
     TResult Function()? delete,
     TResult Function(String error)? failure,
     required TResult orElse(),
@@ -49,6 +52,7 @@ mixin _$UploadImageState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_LoadingImageAtIndex value) loadingImageAtIndex,
     required TResult Function(_Delete value) delete,
     required TResult Function(ErrorState value) failure,
   }) =>
@@ -58,6 +62,7 @@ mixin _$UploadImageState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult? Function(_Delete value)? delete,
     TResult? Function(ErrorState value)? failure,
   }) =>
@@ -67,6 +72,7 @@ mixin _$UploadImageState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult Function(_Delete value)? delete,
     TResult Function(ErrorState value)? failure,
     required TResult orElse(),
@@ -133,6 +139,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function(int index) loadingImageAtIndex,
     required TResult Function() delete,
     required TResult Function(String error) failure,
   }) {
@@ -145,6 +152,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function(int index)? loadingImageAtIndex,
     TResult? Function()? delete,
     TResult? Function(String error)? failure,
   }) {
@@ -157,6 +165,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function(int index)? loadingImageAtIndex,
     TResult Function()? delete,
     TResult Function(String error)? failure,
     required TResult orElse(),
@@ -173,6 +182,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_LoadingImageAtIndex value) loadingImageAtIndex,
     required TResult Function(_Delete value) delete,
     required TResult Function(ErrorState value) failure,
   }) {
@@ -185,6 +195,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult? Function(_Delete value)? delete,
     TResult? Function(ErrorState value)? failure,
   }) {
@@ -197,6 +208,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult Function(_Delete value)? delete,
     TResult Function(ErrorState value)? failure,
     required TResult orElse(),
@@ -253,6 +265,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function(int index) loadingImageAtIndex,
     required TResult Function() delete,
     required TResult Function(String error) failure,
   }) {
@@ -265,6 +278,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function(int index)? loadingImageAtIndex,
     TResult? Function()? delete,
     TResult? Function(String error)? failure,
   }) {
@@ -277,6 +291,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function(int index)? loadingImageAtIndex,
     TResult Function()? delete,
     TResult Function(String error)? failure,
     required TResult orElse(),
@@ -293,6 +308,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_LoadingImageAtIndex value) loadingImageAtIndex,
     required TResult Function(_Delete value) delete,
     required TResult Function(ErrorState value) failure,
   }) {
@@ -305,6 +321,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult? Function(_Delete value)? delete,
     TResult? Function(ErrorState value)? failure,
   }) {
@@ -317,6 +334,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult Function(_Delete value)? delete,
     TResult Function(ErrorState value)? failure,
     required TResult orElse(),
@@ -373,6 +391,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function(int index) loadingImageAtIndex,
     required TResult Function() delete,
     required TResult Function(String error) failure,
   }) {
@@ -385,6 +404,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function(int index)? loadingImageAtIndex,
     TResult? Function()? delete,
     TResult? Function(String error)? failure,
   }) {
@@ -397,6 +417,7 @@ class _$SuccessImpl implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function(int index)? loadingImageAtIndex,
     TResult Function()? delete,
     TResult Function(String error)? failure,
     required TResult orElse(),
@@ -413,6 +434,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_LoadingImageAtIndex value) loadingImageAtIndex,
     required TResult Function(_Delete value) delete,
     required TResult Function(ErrorState value) failure,
   }) {
@@ -425,6 +447,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult? Function(_Delete value)? delete,
     TResult? Function(ErrorState value)? failure,
   }) {
@@ -437,6 +460,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult Function(_Delete value)? delete,
     TResult Function(ErrorState value)? failure,
     required TResult orElse(),
@@ -450,6 +474,165 @@ class _$SuccessImpl implements _Success {
 
 abstract class _Success implements UploadImageState {
   const factory _Success() = _$SuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadingImageAtIndexImplCopyWith<$Res> {
+  factory _$$LoadingImageAtIndexImplCopyWith(_$LoadingImageAtIndexImpl value,
+          $Res Function(_$LoadingImageAtIndexImpl) then) =
+      __$$LoadingImageAtIndexImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$LoadingImageAtIndexImplCopyWithImpl<$Res>
+    extends _$UploadImageStateCopyWithImpl<$Res, _$LoadingImageAtIndexImpl>
+    implements _$$LoadingImageAtIndexImplCopyWith<$Res> {
+  __$$LoadingImageAtIndexImplCopyWithImpl(_$LoadingImageAtIndexImpl _value,
+      $Res Function(_$LoadingImageAtIndexImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$LoadingImageAtIndexImpl(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadingImageAtIndexImpl implements _LoadingImageAtIndex {
+  const _$LoadingImageAtIndexImpl(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'UploadImageState.loadingImageAtIndex(index: $index)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingImageAtIndexImpl &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadingImageAtIndexImplCopyWith<_$LoadingImageAtIndexImpl> get copyWith =>
+      __$$LoadingImageAtIndexImplCopyWithImpl<_$LoadingImageAtIndexImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(int index) loadingImageAtIndex,
+    required TResult Function() delete,
+    required TResult Function(String error) failure,
+  }) {
+    return loadingImageAtIndex(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(int index)? loadingImageAtIndex,
+    TResult? Function()? delete,
+    TResult? Function(String error)? failure,
+  }) {
+    return loadingImageAtIndex?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(int index)? loadingImageAtIndex,
+    TResult Function()? delete,
+    TResult Function(String error)? failure,
+    required TResult orElse(),
+  }) {
+    if (loadingImageAtIndex != null) {
+      return loadingImageAtIndex(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_LoadingImageAtIndex value) loadingImageAtIndex,
+    required TResult Function(_Delete value) delete,
+    required TResult Function(ErrorState value) failure,
+  }) {
+    return loadingImageAtIndex(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(ErrorState value)? failure,
+  }) {
+    return loadingImageAtIndex?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
+    TResult Function(_Delete value)? delete,
+    TResult Function(ErrorState value)? failure,
+    required TResult orElse(),
+  }) {
+    if (loadingImageAtIndex != null) {
+      return loadingImageAtIndex(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingImageAtIndex implements UploadImageState {
+  const factory _LoadingImageAtIndex(final int index) =
+      _$LoadingImageAtIndexImpl;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$LoadingImageAtIndexImplCopyWith<_$LoadingImageAtIndexImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -493,6 +676,7 @@ class _$DeleteImpl implements _Delete {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function(int index) loadingImageAtIndex,
     required TResult Function() delete,
     required TResult Function(String error) failure,
   }) {
@@ -505,6 +689,7 @@ class _$DeleteImpl implements _Delete {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function(int index)? loadingImageAtIndex,
     TResult? Function()? delete,
     TResult? Function(String error)? failure,
   }) {
@@ -517,6 +702,7 @@ class _$DeleteImpl implements _Delete {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function(int index)? loadingImageAtIndex,
     TResult Function()? delete,
     TResult Function(String error)? failure,
     required TResult orElse(),
@@ -533,6 +719,7 @@ class _$DeleteImpl implements _Delete {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_LoadingImageAtIndex value) loadingImageAtIndex,
     required TResult Function(_Delete value) delete,
     required TResult Function(ErrorState value) failure,
   }) {
@@ -545,6 +732,7 @@ class _$DeleteImpl implements _Delete {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult? Function(_Delete value)? delete,
     TResult? Function(ErrorState value)? failure,
   }) {
@@ -557,6 +745,7 @@ class _$DeleteImpl implements _Delete {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult Function(_Delete value)? delete,
     TResult Function(ErrorState value)? failure,
     required TResult orElse(),
@@ -639,6 +828,7 @@ class _$ErrorStateImpl implements ErrorState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function(int index) loadingImageAtIndex,
     required TResult Function() delete,
     required TResult Function(String error) failure,
   }) {
@@ -651,6 +841,7 @@ class _$ErrorStateImpl implements ErrorState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function(int index)? loadingImageAtIndex,
     TResult? Function()? delete,
     TResult? Function(String error)? failure,
   }) {
@@ -663,6 +854,7 @@ class _$ErrorStateImpl implements ErrorState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function(int index)? loadingImageAtIndex,
     TResult Function()? delete,
     TResult Function(String error)? failure,
     required TResult orElse(),
@@ -679,6 +871,7 @@ class _$ErrorStateImpl implements ErrorState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_LoadingImageAtIndex value) loadingImageAtIndex,
     required TResult Function(_Delete value) delete,
     required TResult Function(ErrorState value) failure,
   }) {
@@ -691,6 +884,7 @@ class _$ErrorStateImpl implements ErrorState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult? Function(_Delete value)? delete,
     TResult? Function(ErrorState value)? failure,
   }) {
@@ -703,6 +897,7 @@ class _$ErrorStateImpl implements ErrorState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_LoadingImageAtIndex value)? loadingImageAtIndex,
     TResult Function(_Delete value)? delete,
     TResult Function(ErrorState value)? failure,
     required TResult orElse(),

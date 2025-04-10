@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/networking/api_error_handler.dart';
@@ -23,5 +24,14 @@ class GetCategoriesCubit extends Cubit<GetCategoriesState> {
         emit(GetCategoriesState.failure(e));
       },
     );
+  }
+
+  
+  CategoriesData? data;
+
+  
+  List<String> get categoryDropdownList {
+    final list = data!.categories.map((e) => e.name ?? '').toList();
+    return list;
   }
 }

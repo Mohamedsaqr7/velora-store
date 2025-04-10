@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/custom_drop_down.dart';
 import 'package:velora/core/context/context_extension.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/core/style/theme/spacing.dart';
+import 'package:velora/feature/admin/add_categories/logic/get_category/get_categories_cubit.dart';
+import 'package:velora/feature/admin/add_products/logic/create_product/create_product_cubit.dart';
 import 'package:velora/feature/admin/add_products/presentation/components/create/ccreate_product_drop_down.dart';
 import 'package:velora/feature/admin/add_products/presentation/components/create/create_product_images.dart';
 import 'package:velora/feature/admin/add_products/presentation/components/update/update_product_images.dart';
@@ -23,20 +26,13 @@ class CreateProductBottomSheet extends StatefulWidget {
 }
 
 class _CreateProductBottomSheetState extends State<CreateProductBottomSheet> {
-  final formKey = GlobalKey<FormState>();
-
-  final TextEditingController _titleController = TextEditingController();
-
-  final TextEditingController _priceController = TextEditingController();
-
-  final TextEditingController _descriptionController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
+    var cubit = context.read<CreateProductCubit>();
     return SizedBox(
       height: 600.h,
       child: Form(
-        key: formKey,
+        key: cubit.formKey,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +67,7 @@ class _CreateProductBottomSheetState extends State<CreateProductBottomSheet> {
               ),
               verticalSpace(15), // Title
               CustomTextField(
-                controller: _titleController,
+                controller: cubit.titleController,
                 keyboardType: TextInputType.emailAddress,
                 hintText: 'Title',
                 validator: (value) {
@@ -92,7 +88,7 @@ class _CreateProductBottomSheetState extends State<CreateProductBottomSheet> {
               ),
               verticalSpace(15), // Price
               CustomTextField(
-                controller: _priceController,
+                controller: cubit.priceController,
                 keyboardType: TextInputType.number,
                 hintText: 'Price',
                 validator: (value) {
@@ -113,7 +109,7 @@ class _CreateProductBottomSheetState extends State<CreateProductBottomSheet> {
               ),
               verticalSpace(15), //Description
               CustomTextField(
-                controller: _descriptionController,
+                controller: cubit.descriptionController,
                 maxLines: 4,
                 keyboardType: TextInputType.multiline,
                 hintText: 'Description',
@@ -134,6 +130,29 @@ class _CreateProductBottomSheetState extends State<CreateProductBottomSheet> {
                 ),
               ),
               verticalSpace(15),
+              BlocBuilder<GetCategoriesCubit, GetCategoriesState>(
+                builder: (context, state) {
+                  return state.maybeWhen(
+                    orElse: () {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    },
+                    success: (categories) {
+                      return CustomCreateDropDown(
+                        value: cubit.categoryId,
+                        items: categories.map((e) => e.name ?? '').toList(),
+                        hintText: 'Select Category',
+                        onChanged: (value) {
+                          cubit.categoryId = categories
+                              .firstWhere((element) => element.name == value)
+                              .id;
+                        },
+                      );
+                    },
+                  );
+                },
+              ),
               CcreateProductDropDown(),
               verticalSpace(15),
               CreateProductButton(),
