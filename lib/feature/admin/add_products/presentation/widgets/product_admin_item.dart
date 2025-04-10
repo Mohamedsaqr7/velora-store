@@ -4,12 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/custom_container_linear_admin.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
 import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/context/strring_extension.dart';
 import 'package:velora/core/style/fonts/font_family.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 
 import '../../../../../core/common/bottom_sheet/custom_bottom_sheet.dart';
-import 'update/update_product_bottom_sheet.dart';
+import '../components/update/update_product_bottom_sheet.dart';
 
 class ProductAdminItem extends StatelessWidget {
   const ProductAdminItem(
@@ -45,8 +46,7 @@ class ProductAdminItem extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 onPressed: () {
                   CustomBottomSheet.showModalBottomSheetContainer(
-                    context:context,
-                  widget: UpdateProductBottomSheet());
+                      context: context, widget: UpdateProductBottomSheet());
                 },
                 icon: Icon(
                   Icons.edit,
@@ -62,7 +62,7 @@ class ProductAdminItem extends StatelessWidget {
               child: CachedNetworkImage(
                 height: 200.h,
                 width: 120.w,
-                imageUrl: imageUrl,
+                imageUrl: imageUrl.imageProductFormate(),
                 errorWidget: (context, url, error) => Icon(
                   Icons.error,
                   color: Colors.red,

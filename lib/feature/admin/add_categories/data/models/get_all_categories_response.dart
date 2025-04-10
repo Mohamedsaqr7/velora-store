@@ -11,7 +11,7 @@ class CategoriesResponseModel {
   factory CategoriesResponseModel.fromJson(Map<String, dynamic> json) =>
       _$CategoriesResponseModelFromJson(json);
 
-  final CategoriesData data;
+   final CategoriesData data;
 
   Map<String, dynamic> toJson() => _$CategoriesResponseModelToJson(this);
 }
@@ -25,7 +25,8 @@ class CategoriesData {
   factory CategoriesData.fromJson(Map<String, dynamic> json) =>
       _$CategoriesDataFromJson(json);
 
-  final List<Category> categories;
+   List<Category> categories;
+  
 
   Map<String, dynamic> toJson() => _$CategoriesDataToJson(this);
 }

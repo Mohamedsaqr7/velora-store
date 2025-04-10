@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:velora/core/app/upload_image/cubit/upload_cubit.dart';
 import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/di/dependency_injection.dart';
 import 'package:velora/core/style/fonts/font_family.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
+import 'package:velora/feature/admin/add_categories/logic/get_category/get_categories_cubit.dart';
+import 'package:velora/feature/admin/add_products/logic/create_product/create_product_cubit.dart';
+import 'package:velora/feature/admin/add_products/logic/get_all_products/get_all_products_cubit.dart';
 import 'package:velora/feature/admin/add_products/presentation/components/create/create_product_bottom_sheet.dart';
 
 import '../../../../../../core/common/bottom_sheet/custom_bottom_sheet.dart';
@@ -32,7 +38,20 @@ class CreateProduct extends StatelessWidget {
               onPressed: () {
                 CustomBottomSheet.showModalBottomSheetContainer(
                   context: context,
-                  widget: CreateProductBottomSheet(),
+                  widget: MultiBlocProvider(
+                    providers: [
+                      BlocProvider(
+                        create: (context) => getIt<CreateProductCubit>(),
+                      ),
+                      BlocProvider(
+                        create: (context) => getIt<UploadImageCubit>(),
+                      ),
+                      BlocProvider(
+                        create: (context) => getIt<GetCategoriesCubit>(),
+                      ),
+                    ],
+                    child: CreateProductBottomSheet(),
+                  ),
                 );
               },
               text: 'add',
