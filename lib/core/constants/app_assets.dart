@@ -8,22 +8,22 @@ abstract class AppAssets {
   static String pageunder = '${AppConstants.corePath}page_under_build.jpg';
 
   static const String testDark =
-    '${AppConstants.imagesPath}dark_test_image.png';
+      '${AppConstants.imagesPath}dark_test_image.png';
   static const String testLight =
-    '${AppConstants.imagesPath}light_test_image.png';
+      '${AppConstants.imagesPath}light_test_image.png';
 
-    
   // Customer
   static const bigIconNavBarDark =
-    '${AppConstants.customerPath}big_nav_bar_dark.png';
+      '${AppConstants.customerPath}big_nav_bar_dark.png';
   static const bigIconNavBarLight =
-    '${AppConstants.customerPath}big_nav_bar_light.png';
+      '${AppConstants.customerPath}big_nav_bar_light.png';
   static const homeBgDark = '${AppConstants.customerPath}home_bg_dark.png';
   static const homeBgLight = '${AppConstants.customerPath}home_bg_light.png';
   static const userAvatar = '${AppConstants.customerPath}user.png';
   // Admin
   static const drawerImage = '${AppConstants.adminPath}drawer_image.png';
-  static const categoriesDrawer = '${AppConstants.adminPath}categories_drawer.png';
+  static const categoriesDrawer =
+      '${AppConstants.adminPath}categories_drawer.png';
   static const productsDrawer = '${AppConstants.adminPath}products_drawer.png';
   static const usersDrawer = '${AppConstants.adminPath}users_drawer.png';
 
@@ -40,6 +40,6 @@ abstract class AppAssets {
   static const buildDeveloper = '${AppConstants.svgPath}build_developer.svg';
   static const logout = '${AppConstants.svgPath}logout.svg';
   static const backButton = '${AppConstants.svgPath}arrow_back.svg';
-
-
-  }
+//not
+  static const notificationKey ='${AppConstants.jsonKeyPath}velora-store-6752672a21f8.json';
+}

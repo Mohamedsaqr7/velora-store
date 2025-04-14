@@ -7,6 +7,7 @@ import 'core/app/bloc_observer.dart';
 import 'core/app/env_variables.dart';
 import 'core/constants/secure_storage.dart';
 import 'core/di/dependency_injection.dart';
+import 'core/networking/push_notifications/firebase_cloud_messaging.dart';
 import 'velora_app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -17,7 +18,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 );
-
+await NotificationService().init();
   Bloc.observer = AppBlocObserver();
   // SharedPreferences prefs = await SharedPreferences.getInstance(); // التهيئة
   await setupInjection();

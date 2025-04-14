@@ -23,8 +23,8 @@ class DeleteUserButton extends StatelessWidget {
             //   ShowToast.showFailureToast(fail);
             // },
             success: () {
-          context.read<GetUsersCubit>().getAllUsers();
           ShowToast.showSuccessToast("User has been deleted successfully");
+          context.read<GetUsersCubit>().getAllUsers();
         });
       },
       builder: (context, state) {
