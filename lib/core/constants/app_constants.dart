@@ -5,7 +5,7 @@ class AppConstants {
   static const String corePath = 'assets/images/core/';
   static const String adminPath = 'assets/images/admin/';
   static const String customerPath = 'assets/images/customer/';
-  // static const String lottiePath = 'assets/lottie/';
+  static const String jsonKeyPath = 'assets/notification_key/';
 }
 
 
