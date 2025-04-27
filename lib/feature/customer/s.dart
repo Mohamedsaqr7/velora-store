@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:velora/core/context/context_extension.dart';
-import 'package:velora/core/networking/push_notifications/firebase_cloud_messaging.dart';
+import 'package:velora/core/extensions/context_extension.dart';
+import 'package:velora/core/services/push_notifications/firebase_cloud_messaging.dart';
 import 'package:velora/core/routes/app_routes.dart';
 
 class cust extends StatelessWidget {

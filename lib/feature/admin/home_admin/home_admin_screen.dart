@@ -4,7 +4,7 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:velora/core/common/widgets/admin_app_bar.dart';
 import 'package:velora/core/common/widgets/admin_drawer_list.dart';
 import 'package:velora/core/constants/app_assets.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/language/lang_keys.dart';
 import 'package:velora/feature/admin/dashboard/presentation/dashboard.dart';
 import 'package:velora/feature/admin/users/presentation/users_screen.dart';

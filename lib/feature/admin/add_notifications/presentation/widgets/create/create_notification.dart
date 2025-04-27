@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
+import 'package:velora/core/di/dependency_injection.dart';
+import 'package:velora/feature/admin/add_notifications/logic/add_nots/add_notification_cubit.dart';
+import 'package:velora/feature/admin/add_notifications/logic/get_nots/get_notification_cubit.dart';
 
 import '../../../../../../core/common/bottom_sheet/custom_bottom_sheet.dart';
 import '../../../../../../core/common/widgets/custom_button.dart';
@@ -27,7 +31,11 @@ class CreateNotification extends StatelessWidget {
         CustomButton(
           onPressed: () {
             CustomBottomSheet.showModalBottomSheetContainer(
-                context: context, widget: CreateNotificationBottomSheet());
+              context: context,
+              widget: CreateNotificationBottomSheet(),
+              whenComplete: () =>
+                  context.read<GetNotificationCubit>()..getAllNotification(),
+            );
           },
           text: 'add',
           width: 90.w,

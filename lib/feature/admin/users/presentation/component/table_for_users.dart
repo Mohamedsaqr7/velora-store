@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/style/colors/colors_dark.dart';
 import 'package:velora/feature/admin/users/data/models/get_all_users_response.dart';
 import 'package:velora/feature/admin/users/presentation/component/delete_user.dart';

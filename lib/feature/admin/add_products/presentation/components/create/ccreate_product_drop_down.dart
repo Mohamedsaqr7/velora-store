@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/feature/admin/add_categories/logic/get_category/get_categories_cubit.dart';
 import 'package:velora/feature/admin/add_products/logic/get_all_products/get_all_products_cubit.dart';
 

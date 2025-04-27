@@ -7,6 +7,9 @@ import 'package:velora/feature/admin/add_categories/logic/create_category/create
 import 'package:velora/feature/admin/add_categories/logic/delete_category/delete_category_cubit.dart';
 import 'package:velora/feature/admin/add_categories/logic/get_category/get_categories_cubit.dart';
 import 'package:velora/feature/admin/add_categories/logic/update_category/update_category_cubit.dart';
+import 'package:velora/feature/admin/add_notifications/data/repo/notification_repo.dart';
+import 'package:velora/feature/admin/add_notifications/logic/add_nots/add_notification_cubit.dart';
+import 'package:velora/feature/admin/add_notifications/logic/send_notification/send_notification_cubit.dart';
 import 'package:velora/feature/admin/add_products/logic/create_product/create_product_cubit.dart';
 import 'package:velora/feature/admin/dashboard/logic/categories_number_cubit/categories_cubit.dart';
 import 'package:velora/feature/admin/dashboard/logic/products_number_cubit/product_cubit.dart';
@@ -16,6 +19,7 @@ import 'package:velora/feature/admin/users/logic/get_users/get_users_cubit.dart'
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
 
 import '../../feature/admin/add_categories/data/repos/cateories_admin_repo.dart';
+import '../../feature/admin/add_notifications/logic/get_nots/get_notification_cubit.dart';
 import '../../feature/admin/add_products/data/repo/produccts_repo.dart';
 import '../../feature/admin/add_products/logic/get_all_products/get_all_products_cubit.dart';
 import '../../feature/admin/dashboard/data/repo/dashboard_repo.dart';
@@ -91,5 +95,12 @@ Future<void> setupInjection() async {
     )
     ..registerFactory<GetUsersCubit>(() => GetUsersCubit(getIt<UsersRepo>()))
     ..registerFactory<DeleteUserCubit>(
-        () => DeleteUserCubit(getIt<UsersRepo>()));
+        () => DeleteUserCubit(getIt<UsersRepo>()))
+    ..registerFactory<AddNotificationCubit>(AddNotificationCubit.new)
+    ..registerFactory<GetNotificationCubit>(GetNotificationCubit.new)
+    ..registerLazySingleton<NotificationsRepo>(
+       NotificationsRepo.new,
+    )
+    ..registerFactory<SendNotificationCubit>(
+        () => SendNotificationCubit(getIt<NotificationsRepo>()));
 }

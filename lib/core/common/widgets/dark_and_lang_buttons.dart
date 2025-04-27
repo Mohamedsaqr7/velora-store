@@ -5,7 +5,7 @@ import 'package:velora/core/app/app_cubit/app_cubit.dart';
 import 'package:velora/core/common/widgets/animate_do.dart';
 import 'package:velora/core/common/widgets/custom_linear_button.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/language/app_localization.dart';
 import 'package:velora/core/language/lang_keys.dart';
 

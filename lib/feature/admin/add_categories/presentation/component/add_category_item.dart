@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/app/upload_image/cubit/upload_cubit.dart';
 import 'package:velora/core/common/widgets/custom_container_linear_admin.dart';
 import 'package:velora/core/common/widgets/custom_linear_button.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/di/dependency_injection.dart';
 import 'package:velora/core/style/fonts/font_family.dart';
 import 'package:velora/core/style/theme/spacing.dart';

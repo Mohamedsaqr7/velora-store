@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/feature/auth/sign_up/presentation/signup/component/signup_button.dart';
 import 'package:velora/feature/auth/sign_up/presentation/signup/component/signup_text_form.dart';
 import 'package:velora/feature/auth/sign_up/presentation/signup/component/user_avatar.dart';

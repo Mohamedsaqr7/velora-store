@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:velora/core/common/widgets/admin_app_bar.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/di/dependency_injection.dart';
 import 'package:velora/feature/admin/dashboard/data/repo/dashboard_repo.dart';
 import 'package:velora/feature/admin/dashboard/logic/categories_number_cubit/categories_cubit.dart';

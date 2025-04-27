@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_state.dart';
 

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/custom_button.dart';
 import 'package:velora/core/common/widgets/custom_text_field.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/feature/admin/add_categories/logic/update_category/update_category_cubit.dart';
 import 'package:velora/feature/admin/add_categories/presentation/component/update/update_upload_image.dart';
 
