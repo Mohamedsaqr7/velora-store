@@ -9,7 +9,7 @@ import 'package:velora/core/di/dependency_injection.dart';
 import 'package:velora/core/services/push_notifications/firebase_cloud_messaging.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 import 'package:velora/feature/admin/add_notifications/logic/get_nots/get_notification_cubit.dart';
-import 'package:velora/feature/customer/s.dart';
+import 'package:velora/feature/customer/main/presentation/screens/main_screen.dart';
 
 import '../../../../core/common/widgets/admin_app_bar.dart';
 import '../logic/add_nots/add_notification_cubit.dart';

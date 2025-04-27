@@ -17,6 +17,7 @@ import 'package:velora/feature/admin/dashboard/logic/users_number_cubit/users_cu
 import 'package:velora/feature/admin/users/data/repo/users_repo.dart';
 import 'package:velora/feature/admin/users/logic/get_users/get_users_cubit.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
+import 'package:velora/feature/customer/main/logic/main_cubit_cubit.dart';
 
 import '../../feature/admin/add_categories/data/repos/cateories_admin_repo.dart';
 import '../../feature/admin/add_notifications/logic/get_nots/get_notification_cubit.dart';
@@ -99,8 +100,9 @@ Future<void> setupInjection() async {
     ..registerFactory<AddNotificationCubit>(AddNotificationCubit.new)
     ..registerFactory<GetNotificationCubit>(GetNotificationCubit.new)
     ..registerLazySingleton<NotificationsRepo>(
-       NotificationsRepo.new,
+      NotificationsRepo.new,
     )
     ..registerFactory<SendNotificationCubit>(
-        () => SendNotificationCubit(getIt<NotificationsRepo>()));
+        () => SendNotificationCubit(getIt<NotificationsRepo>()))
+    ..registerFactory(MainCubitCubit.new);
 }

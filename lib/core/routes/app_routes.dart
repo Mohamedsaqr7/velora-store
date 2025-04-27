@@ -8,7 +8,7 @@ import 'package:velora/feature/auth/login/presentation/login_screen.dart';
 import 'package:velora/feature/auth/sign_up/data/repo/sign_up_repo.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:velora/feature/auth/sign_up/presentation/signup/signup_screen.dart';
-import 'package:velora/feature/customer/s.dart';
+import 'package:velora/feature/customer/main/presentation/screens/main_screen.dart';
 
 import '../../feature/auth/login/logic/login/login_cubit.dart';
 import '../app/upload_image/cubit/upload_cubit.dart';
@@ -49,7 +49,7 @@ class AppRoutes {
         );
       case homeCustomer:
         return MaterialPageRoute(
-          builder: (_) => const cust(),
+          builder: (_) => const MainScreen(),
         );
       default:
         return BaseRoute(page: const PageUnderBuildScreen());
