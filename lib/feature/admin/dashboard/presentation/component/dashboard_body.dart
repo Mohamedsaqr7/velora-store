@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
 import 'package:velora/core/constants/app_assets.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 import 'package:velora/feature/admin/dashboard/presentation/component/dashboard_container.dart';
 import 'package:velora/feature/admin/dashboard/logic/categories_number_cubit/categories_cubit.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/di/dependency_injection.dart';
 
 import '../../../../core/common/widgets/admin_app_bar.dart';

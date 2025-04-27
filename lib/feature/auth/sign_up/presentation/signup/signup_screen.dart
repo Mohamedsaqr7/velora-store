@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 
 import '../../../../../core/common/widgets/auth_custom_painter.dart';
 import 'component/signup_body.dart';

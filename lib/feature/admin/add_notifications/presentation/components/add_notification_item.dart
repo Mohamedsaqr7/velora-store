@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/custom_container_linear_admin.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
+import 'package:velora/core/extensions/date_extension.dart';
 import 'package:velora/core/style/fonts/font_family.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
+import 'package:velora/feature/admin/add_notifications/data/model/add_notification_model.dart';
 
 import '../../../../../core/style/theme/spacing.dart';
+import '../widgets/delete/delete_notification.dart';
+import '../widgets/edit/edit_notification.dart';
+import '../widgets/send/send_notification.dart';
 
 class AddNotificationItem extends StatelessWidget {
-  const AddNotificationItem({super.key});
-
+  AddNotificationItem({required this.addNotificationModel, super.key, required this.index});
+  AddNotificationModel addNotificationModel;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return CustomContainerLinearAdmin(
@@ -20,38 +26,34 @@ class AddNotificationItem extends StatelessWidget {
         child: Column(
           children: [
             const Spacer(),
-            NotificationInfo(title: 'Title:', body: 'bodyssssss'),
+            NotificationInfo(
+                title: 'Title:',
+                body: addNotificationModel.title ?? 'bodyssssss'),
             const Spacer(),
-            NotificationInfo(title: 'Body:', body: 'bodyssssss'),
+            NotificationInfo(
+                title: 'Body:',
+                body: addNotificationModel.body ?? 'bodyssssss'),
             const Spacer(),
-            NotificationInfo(title: 'Created At:', body: 'bodyssssss'),
+            NotificationInfo(
+                title: 'Created At:',
+                body: addNotificationModel.createdAt.getFormatDayMonthYear() ??
+                    'bodyssssss'),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                  ),
+                DeleteNotification(
+                  deleteNot: addNotificationModel,
                 ),
                 horizontalSpace(20),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.edit,
-                    color: Colors.yellow,
-                  ),
+                EditNotification(
+                  addNotificationModel: addNotificationModel,
                 ),
                 horizontalSpace(20),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.send,
-                    color: Colors.green,
-                  ),
-                ),
+                SendNotificationWidget(
+                  addNotificationModel: addNotificationModel,
+                  index: index,
+                )
               ],
             ),
           ],

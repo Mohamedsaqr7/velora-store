@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/app/upload_image/cubit/upload_cubit.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/style/fonts/font_family.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/core/style/theme/spacing.dart';

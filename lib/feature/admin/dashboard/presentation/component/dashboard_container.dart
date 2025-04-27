@@ -4,7 +4,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:velora/core/common/widgets/custom_container_linear_admin.dart';
 import 'package:velora/core/common/widgets/loading_shimmer.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/style/fonts/font_family.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 

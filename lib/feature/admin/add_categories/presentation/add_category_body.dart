@@ -6,7 +6,7 @@ import 'package:velora/core/common/bottom_sheet/custom_bottom_sheet.dart';
 import 'package:velora/core/common/widgets/custom_button.dart';
 import 'package:velora/core/common/widgets/loading_shimmer.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/di/dependency_injection.dart';
 import 'package:velora/core/language/lang_keys.dart';
 import 'package:velora/core/style/fonts/font_family.dart';

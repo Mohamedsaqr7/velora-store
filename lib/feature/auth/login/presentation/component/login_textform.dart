@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:velora/core/common/widgets/animate_do.dart';
 import 'package:velora/core/common/widgets/custom_text_field.dart';
 import 'package:velora/core/constants/app_regex.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 import 'package:velora/feature/auth/login/logic/login/login_cubit.dart';
 import 'package:velora/feature/auth/login/logic/login/login_state.dart';

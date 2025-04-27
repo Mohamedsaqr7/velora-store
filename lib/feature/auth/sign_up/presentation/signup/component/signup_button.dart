@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:velora/core/context/context_extension.dart';
+import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/language/lang_keys.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
