@@ -18,6 +18,9 @@ import 'package:velora/feature/admin/dashboard/logic/users_number_cubit/users_cu
 import 'package:velora/feature/admin/users/data/repo/users_repo.dart';
 import 'package:velora/feature/admin/users/logic/get_users/get_users_cubit.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
+import 'package:velora/feature/customer/home/data/repo/customer_home_repo.dart';
+import 'package:velora/feature/customer/home/logic/categories/fetch_categories_cubit.dart';
+import 'package:velora/feature/customer/home/logic/products/fetch_products_cubit.dart';
 import 'package:velora/feature/customer/main/logic/main_cubit_cubit.dart';
 import 'package:velora/feature/customer/profile/data/repos/profile_repo.dart';
 import 'package:velora/feature/customer/profile/logic/user_profile_cubit.dart';
@@ -31,6 +34,8 @@ import '../../feature/admin/users/logic/delete_user/delete_user_cubit.dart';
 import '../../feature/auth/login/data/repo/login_repo.dart';
 import '../../feature/auth/login/logic/login/login_cubit.dart';
 import '../../feature/auth/sign_up/data/repo/sign_up_repo.dart';
+import '../../feature/customer/product_details/data/repo/product_details_repo.dart';
+import '../../feature/customer/product_details/logic/product_details_cubit.dart';
 import '../app/app_cubit/app_cubit.dart';
 import '../app/bloc_observer.dart';
 import '../app/upload_image/cubit/upload_cubit.dart';
@@ -113,5 +118,15 @@ Future<void> setupInjection() async {
     ..registerFactory(MainCubitCubit.new)
     ..registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt<ApiService>()))
     ..registerFactory<UserProfileCubit>(
-        () => UserProfileCubit(getIt<ProfileRepo>()));
+        () => UserProfileCubit(getIt<ProfileRepo>()))
+    ..registerLazySingleton<CustomerHomeRepo>(
+        () => CustomerHomeRepo(getIt<ApiService>()))
+    ..registerFactory<FetchCategoriesCubit>(
+        () => FetchCategoriesCubit(getIt<CustomerHomeRepo>()))
+    ..registerFactory<FetchProductsCubit>(
+        () => FetchProductsCubit(getIt<CustomerHomeRepo>()))
+    ..registerLazySingleton<ProductDetailsRepo>(
+        () => ProductDetailsRepo(getIt<ApiService>()))
+    ..registerFactory<ProductDetailsCubit>(
+        () => ProductDetailsCubit(getIt<ProductDetailsRepo>()));
 }

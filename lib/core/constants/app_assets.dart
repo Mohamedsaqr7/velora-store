@@ -40,6 +40,16 @@ abstract class AppAssets {
   static const buildDeveloper = '${AppConstants.svgPath}build_developer.svg';
   static const logout = '${AppConstants.svgPath}logout.svg';
   static const backButton = '${AppConstants.svgPath}arrow_back.svg';
+  // //banner
+  static const banner1 = '${AppConstants.bannerPath}banner_1.jpg';
+  static const banner2 = '${AppConstants.bannerPath}banner_2.jpg';
+  static const banner3 = '${AppConstants.bannerPath}banner_3.jpg';
+  static const banner4 = '${AppConstants.bannerPath}banner_4.jpg';
+  static const banner5 = '${AppConstants.bannerPath}banner_5.jpg';
+  static const banner6 = '${AppConstants.bannerPath}banner_6.jpg';
+  static const banner7 = '${AppConstants.bannerPath}banner_7.jpg';
+
 //not
-  static const notificationKey ='${AppConstants.jsonKeyPath}velora-store-6752672a21f8.json';
+  static const notificationKey =
+      '${AppConstants.jsonKeyPath}velora-store-6752672a21f8.json';
 }

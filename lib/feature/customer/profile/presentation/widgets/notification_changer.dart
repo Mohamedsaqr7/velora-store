@@ -39,7 +39,7 @@ class NotificationsChange extends StatelessWidget {
                 inactiveTrackColor: const Color(0xff262626),
                 activeColor: Colors.green,
                 onChanged: (value) {
-                  NotificationService.controllerForUserSubscribe(context);
+                  NotificationService().controllerForUserSubscribe(context);
                 },
               ),
             );
