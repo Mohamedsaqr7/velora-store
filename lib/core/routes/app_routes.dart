@@ -10,6 +10,7 @@ import 'package:velora/feature/auth/sign_up/data/repo/sign_up_repo.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:velora/feature/auth/sign_up/presentation/signup/signup_screen.dart';
 import 'package:velora/feature/customer/main/presentation/screens/main_screen.dart';
+import 'package:velora/feature/customer/product_details/presentation/screens/product_details_screen.dart';
 
 import '../../feature/auth/login/logic/login/login_cubit.dart';
 import '../app/upload_image/cubit/upload_cubit.dart';
@@ -22,6 +23,7 @@ class AppRoutes {
   static const String homeAdmin = '/homeAdmin';
   static const String homeCustomer = '/homeCustomer';
   static const String webView = '/webView';
+  static const String productDetails = '/productDetails';
   static Route<void> onGenerateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
@@ -57,6 +59,12 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (_) =>  CustomWebView(
             url: args as String,
+          ),
+        );
+      case productDetails:
+        return MaterialPageRoute(
+          builder: (_) =>  ProductDetailsScreen(
+            productId: args as int,
           ),
         );
       default:

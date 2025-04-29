@@ -1,13 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:velora/core/constants/app_assets.dart';
 import 'package:velora/core/extensions/context_extension.dart';
 
-import 'core/common/widgets/custom_linear_button.dart';
-import 'core/common/widgets/text_app.dart';
-import 'core/style/fonts/font_weight.dart';
+import '../../../../../core/common/widgets/custom_linear_button.dart';
+import '../../../../../core/common/widgets/text_app.dart';
+import '../../../../../core/style/fonts/font_weight.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({

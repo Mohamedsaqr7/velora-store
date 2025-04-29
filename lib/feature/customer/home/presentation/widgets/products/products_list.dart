@@ -24,6 +24,7 @@ class CustomerProductsList extends StatelessWidget {
         ),
         itemBuilder: (context, index) {
           return CustomerProductItem(
+            productId: int.parse(productsList[index].id ?? '0'),
             categoryName: productsList[index].category?.name ?? 'football',
             price: productsList[index].price ?? 200,
             title: productsList[index].title ?? 'clothes',

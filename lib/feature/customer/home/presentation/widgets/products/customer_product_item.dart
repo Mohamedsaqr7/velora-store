@@ -1,24 +1,36 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:velora/core/common/widgets/custom_favourite_button.dart';
+import 'package:velora/core/common/widgets/custom_share_button.dart';
 import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/extensions/strring_extension.dart';
+import 'package:velora/core/routes/app_routes.dart';
 
 import '../../../../../../core/common/widgets/custom_container_linera_customer.dart';
 import '../../../../../../core/common/widgets/text_app.dart';
 import '../../../../../../core/style/fonts/font_weight.dart';
 
 class CustomerProductItem extends StatelessWidget {
-  const CustomerProductItem({super.key, required this.imageUrl, required this.title, required this.categoryName, required this.price});
+  const CustomerProductItem(
+      {super.key,
+      required this.imageUrl,
+      required this.title,
+      required this.categoryName,
+      required this.price,
+      required this.productId});
 
   final String imageUrl;
   final String title;
   final String categoryName;
   final double price;
+  final int productId;
   @override
   Widget build(BuildContext context) {
-    return   GestureDetector(
-      onTap: () {},
+    return GestureDetector(
+      onTap: () {
+        context.pushName(AppRoutes.productDetails, arguments: productId);
+      },
       child: CustomContainerLinearCustomer(
         height: 250.h,
         width: 165.w,
@@ -30,23 +42,11 @@ class CustomerProductItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //Share Button
-                IconButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.zero,
-                  icon: Icon(
-                    Icons.share,
-                    color: context.color.textColor,
-                  ),
-                ),
+                CustomShareButton(size: 25, onTap: () {}),
+
                 //Favorite Button
-                IconButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.zero,
-                  icon: Icon(
-                    Icons.favorite_outline,
-                    color: context.color.textColor,
-                  ),
-                ),
+                CustomFavoriteButton(
+                    size: 25, isFavorites: false, onTap: () {}),
               ],
             ),
             // Show Image
