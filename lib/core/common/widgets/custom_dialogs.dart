@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/text_app.dart';
@@ -23,7 +22,7 @@ class CustomDialog {
       barrierDismissible: false,
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: Colors.grey,
+        backgroundColor: const Color.fromARGB(255, 229, 220, 220),
         title: Padding(
           padding: EdgeInsets.only(
             top: 30.h,
@@ -45,7 +44,7 @@ class CustomDialog {
         ),
         actions: [
           CustomButton(
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.green,
             onPressed: onPressed,
             text: textButton1,
             width: 320.w,
@@ -56,6 +55,7 @@ class CustomDialog {
           ),
           SizedBox(height: 10.h, width: 1.w),
           CustomButton(
+            backgroundColor: Colors.red,
             onPressed: () {
               context.pop();
             },

@@ -30,6 +30,10 @@
     "log_out_from_app": "Do you want log out?",
     "yes": "Yes",
     "no": "No",
+    "notifications": "Notifications",
     "dark_mode": "Dark Mode",
-    "lang_code": "English"
+    "lang_code": "English",
+    "subscribed_to_notifications": "Notifications have been subscribed",
+    "unsubscribed_to_notifications": "Notifications have been unsubscribed",
+    "view_all": "View all"
 }
