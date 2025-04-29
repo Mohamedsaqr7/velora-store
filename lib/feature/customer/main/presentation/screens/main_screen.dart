@@ -9,7 +9,7 @@ import 'package:velora/feature/customer/main/logic/main_cubit_cubit.dart';
 
 import '../../../../../core/enums/nav_bar_enum.dart';
 import '../../../favourite/favourite_screen.dart';
-import '../../../home/home_screen.dart';
+import '../../../home/presentation/screens/home_screen.dart';
 import '../../../profile/presentation/screens/profile_screen.dart';
 import '../components/bottom_nav_bar.dart';
 import '../components/main_screen_appbar.dart';
