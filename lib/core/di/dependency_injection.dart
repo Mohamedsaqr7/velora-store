@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:velora/core/networking/api_service.dart';
 import 'package:velora/core/networking/dio_factory.dart';
@@ -17,6 +18,9 @@ import 'package:velora/feature/admin/dashboard/logic/users_number_cubit/users_cu
 import 'package:velora/feature/admin/users/data/repo/users_repo.dart';
 import 'package:velora/feature/admin/users/logic/get_users/get_users_cubit.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
+import 'package:velora/feature/customer/main/logic/main_cubit_cubit.dart';
+import 'package:velora/feature/customer/profile/data/repos/profile_repo.dart';
+import 'package:velora/feature/customer/profile/logic/user_profile_cubit.dart';
 
 import '../../feature/admin/add_categories/data/repos/cateories_admin_repo.dart';
 import '../../feature/admin/add_notifications/logic/get_nots/get_notification_cubit.dart';
@@ -38,8 +42,11 @@ Future<void> setupInjection() async {
   //dio & api service
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
-  //login(repo & cubit)
+  final navigatorKey = GlobalKey<NavigatorState>();
   getIt
+    ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey)
+
+    //login(repo & cubit)
     ..registerFactory<LoginRepo>(() => LoginRepo(getIt<ApiService>()))
     ..registerFactory<LoginCubit>(() => LoginCubit(getIt<LoginRepo>()))
 //upload image(repo & cubit)
@@ -99,8 +106,12 @@ Future<void> setupInjection() async {
     ..registerFactory<AddNotificationCubit>(AddNotificationCubit.new)
     ..registerFactory<GetNotificationCubit>(GetNotificationCubit.new)
     ..registerLazySingleton<NotificationsRepo>(
-       NotificationsRepo.new,
+      NotificationsRepo.new,
     )
     ..registerFactory<SendNotificationCubit>(
-        () => SendNotificationCubit(getIt<NotificationsRepo>()));
+        () => SendNotificationCubit(getIt<NotificationsRepo>()))
+    ..registerFactory(MainCubitCubit.new)
+    ..registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt<ApiService>()))
+    ..registerFactory<UserProfileCubit>(
+        () => UserProfileCubit(getIt<ProfileRepo>()));
 }

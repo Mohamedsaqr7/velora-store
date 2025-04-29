@@ -26,6 +26,7 @@ class CreateCategoryCubit extends Cubit<CreateCategoryState> {
     result.when(
       success: (response) => emit(const CreateCategoryState.success()),
       failure: (e) {
+
         emit(CreateCategoryState.failure(e));
       },
     );

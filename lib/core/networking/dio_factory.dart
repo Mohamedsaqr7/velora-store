@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:velora/core/constants/secure_keys.dart';
+import 'package:velora/core/utils/app_logout.dart';
 
 import '../constants/secure_storage.dart';
 
@@ -49,5 +50,18 @@ class DioFactory {
         responseHeader: true,
       ),
     );
+    // dio!.interceptors.add(InterceptorsWrapper(
+    //   onRequest: (options, handler) {
+    //     options.headers['Authorization'] =
+    //         'Bearer ${SharedPref().getString(SecureKeys.accessToken)}';
+
+    //     return handler.next(options);
+    //   },
+    //   onError: (error, handler) async {
+    //     if (error.response?.statusCode == 401) {
+    //       await AppLogout().logOut();
+    //     }
+    //   },
+    // ));
   }
 }
