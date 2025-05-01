@@ -34,6 +34,8 @@ import '../../feature/admin/users/logic/delete_user/delete_user_cubit.dart';
 import '../../feature/auth/login/data/repo/login_repo.dart';
 import '../../feature/auth/login/logic/login/login_cubit.dart';
 import '../../feature/auth/sign_up/data/repo/sign_up_repo.dart';
+import '../../feature/customer/categories/data/repo/Home_category_repo.dart';
+import '../../feature/customer/categories/logic/get_all_category_cubit.dart';
 import '../../feature/customer/product_details/data/repo/product_details_repo.dart';
 import '../../feature/customer/product_details/logic/product_details_cubit.dart';
 import '../app/app_cubit/app_cubit.dart';
@@ -128,5 +130,9 @@ Future<void> setupInjection() async {
     ..registerLazySingleton<ProductDetailsRepo>(
         () => ProductDetailsRepo(getIt<ApiService>()))
     ..registerFactory<ProductDetailsCubit>(
-        () => ProductDetailsCubit(getIt<ProductDetailsRepo>()));
+        () => ProductDetailsCubit(getIt<ProductDetailsRepo>()))
+    ..registerLazySingleton<HomeCategoryRepo>(
+        () => HomeCategoryRepo(getIt<ApiService>()))
+    ..registerFactory<GetAllCategoryCubit>(
+        () => GetAllCategoryCubit(getIt<HomeCategoryRepo>()));
 }

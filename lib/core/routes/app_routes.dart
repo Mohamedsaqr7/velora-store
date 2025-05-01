@@ -13,6 +13,7 @@ import 'package:velora/feature/customer/main/presentation/screens/main_screen.da
 import 'package:velora/feature/customer/product_details/presentation/screens/product_details_screen.dart';
 
 import '../../feature/auth/login/logic/login/login_cubit.dart';
+import '../../feature/customer/categories/presentation/screens/categories_screen.dart';
 import '../app/upload_image/cubit/upload_cubit.dart';
 import '../app/upload_image/repo/upload_image_repo.dart';
 import '../common/screens/under_build_screen.dart';
@@ -24,6 +25,7 @@ class AppRoutes {
   static const String homeCustomer = '/homeCustomer';
   static const String webView = '/webView';
   static const String productDetails = '/productDetails';
+  static const String category = '/category';
   static Route<void> onGenerateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
@@ -65,6 +67,12 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (_) =>  ProductDetailsScreen(
             productId: args as int,
+          ),
+        );
+      case category:
+        return MaterialPageRoute(
+          builder: (_) =>  ShowCategoriesScreen(
+            categoryInfo: args as ({int categoryId, String categoryName}),
           ),
         );
       default:

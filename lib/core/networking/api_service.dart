@@ -72,12 +72,12 @@ abstract class ApiService {
   Future<void> deleteCategory(
     @Body() Map<String, dynamic> mutation,
   );
-  
+
   @POST(ApiConstants.graphQl)
   Future<void> updateCategory(
     @Body() Map<String, dynamic> mutation,
   );
-   @POST(ApiConstants.graphQl)
+  @POST(ApiConstants.graphQl)
   Future<GetAllProductResponse> getAllProduct(
     @Body() Map<String, dynamic> query,
   );
@@ -96,7 +96,7 @@ abstract class ApiService {
   Future<void> updateProduct(
     @Body() Map<String, dynamic> mutation,
   );
-   @POST(ApiConstants.graphQl)
+  @POST(ApiConstants.graphQl)
   Future<GetAllUsersResponse> getAllUsers(
     @Body() Map<String, dynamic> query,
   );
@@ -107,6 +107,10 @@ abstract class ApiService {
   );
   @POST(ApiConstants.graphQl)
   Future<ProductDetailsResponse> productDetails(
+    @Body() Map<String, dynamic> query,
+  );
+  @POST(ApiConstants.graphQl)
+  Future<GetAllProductResponse> homeCategories(
     @Body() Map<String, dynamic> query,
   );
 }

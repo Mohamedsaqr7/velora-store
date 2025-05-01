@@ -19,19 +19,15 @@ class LoginCubit extends Cubit<LoginState> {
   GlobalKey<FormState> formKey = GlobalKey();
   void emitLoginStates() async {
     emit(const LoginState.loading());
-    print("✅ Login loading, emitting Success state");
     final respone = await _authRepo.login(
         loginRequestBody: LoginRequestModel(
       email: emailController.text.trim(),
       password: passwordController.text.trim(),
     ));
 
-    print("✅ Login successful, emitting Success state");
     await respone.when(
       success: (loginData) async {
-        print("✅ Login successful, emitting Success state");
         final accessToken = loginData.userData.login.accessToken ?? '';
-        log("access token : $accessToken");
         await SharedPref().setString(SecureKeys.accessToken, accessToken);
         await DioFactory.setTokenIntoHeaderAfterLogin(token: accessToken);
         final user = await _authRepo.userRole();

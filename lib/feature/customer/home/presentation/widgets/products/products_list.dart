@@ -34,6 +34,6 @@ class CustomerProductsList extends StatelessWidget {
         },
       ),
     );
-    ;
+    
   }
 }
