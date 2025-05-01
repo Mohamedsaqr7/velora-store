@@ -18,7 +18,7 @@ class CategoriesList extends StatelessWidget {
         child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return CategoryItem(
+              return CategoryItem(id: int.parse(categoryList[index].id),
                   image: categoryList[index].image,
                   title: categoryList[index].name);
             },

@@ -4,6 +4,7 @@ import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 import 'package:velora/feature/customer/product_details/presentation/widgets/product_details_image_slider.dart';
 import 'package:readmore/readmore.dart';
+import '../../../../../core/common/widgets/animate_do.dart';
 import '../../../../../core/common/widgets/custom_favourite_button.dart';
 import '../../../../../core/common/widgets/custom_share_button.dart';
 import '../../../../../core/common/widgets/text_app.dart';
@@ -22,44 +23,53 @@ class ProductDetailsBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                CustomShareButton(size: 30, onTap: () {}),
-                Spacer(),
-                CustomFavoriteButton(
-                    size: 30, isFavorites: false, onTap: () {}),
-                verticalSpace(10),
-              ],
+            CustomFadeInRight(
+              duration: 400,
+              child: Row(
+                children: [
+                  CustomShareButton(size: 30, onTap: () {}),
+                  Spacer(),
+                  CustomFavoriteButton(
+                      size: 30, isFavorites: false, onTap: () {}),
+                  verticalSpace(10),
+                ],
+              ),
             ),
             ProductDetailsImageSlider(
               imageList: productModel.images,
             ),
             verticalSpace(30),
-            TextApp(
-              text: productModel.title ?? ".title ",
-              theme: context.textStyle.copyWith(
-                fontSize: 16.sp,
-                fontWeight: FontWeightHelper.bold,
+            CustomFadeInRight(
+              duration: 700,
+              child: TextApp(
+                text: productModel.title ?? ".title ",
+                theme: context.textStyle.copyWith(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeightHelper.bold,
+                ),
               ),
             ),
             verticalSpace(10) //description
             ,
-            ReadMoreText(
-              productModel.description ?? '',
-              trimMode: TrimMode.Length,
-              trimLines: 5,
-              colorClickableText: context.color.bluePinkLight,
-              trimCollapsedText: 'Show more',
-              trimExpandedText: 'Show less',
-              moreStyle: context.textStyle.copyWith(
-                fontSize: 14.sp,
-                fontWeight: FontWeightHelper.bold,
-                color: context.color.bluePinkLight,
-              ),
-              style: context.textStyle.copyWith(
-                fontSize: 16.sp,
-                fontWeight: FontWeightHelper.regular,
-                color: context.color.textColor,
+            CustomFadeInRight(
+              duration: 900,
+              child: ReadMoreText(
+                productModel.description ?? '',
+                trimMode: TrimMode.Length,
+                trimLines: 5,
+                colorClickableText: context.color.bluePinkLight,
+                trimCollapsedText: 'Show more',
+                trimExpandedText: 'Show less',
+                moreStyle: context.textStyle.copyWith(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeightHelper.bold,
+                  color: context.color.bluePinkLight,
+                ),
+                style: context.textStyle.copyWith(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeightHelper.regular,
+                  color: context.color.textColor,
+                ),
               ),
             ),
             // TextApp(
