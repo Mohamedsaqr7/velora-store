@@ -24,6 +24,6 @@ class ProductsListShimmer extends StatelessWidget {
         );
       },
     );
-    ;
+    
   }
 }

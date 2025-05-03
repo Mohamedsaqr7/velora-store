@@ -18,7 +18,7 @@ class UserProfileInfo extends StatelessWidget {
     return Column(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(20.r),
+          borderRadius: BorderRadius.circular(50.r),
           child: CachedNetworkImage(
             height: 80.h,
             width: 80.w,

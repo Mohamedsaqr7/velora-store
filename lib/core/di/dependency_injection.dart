@@ -22,6 +22,7 @@ import 'package:velora/feature/customer/home/data/repo/customer_home_repo.dart';
 import 'package:velora/feature/customer/home/logic/categories/fetch_categories_cubit.dart';
 import 'package:velora/feature/customer/home/logic/products/fetch_products_cubit.dart';
 import 'package:velora/feature/customer/main/logic/main_cubit_cubit.dart';
+import 'package:velora/feature/customer/products_view_all/data/view_all_products_repo.dart';
 import 'package:velora/feature/customer/profile/data/repos/profile_repo.dart';
 import 'package:velora/feature/customer/profile/logic/user_profile_cubit.dart';
 
@@ -38,6 +39,7 @@ import '../../feature/customer/categories/data/repo/Home_category_repo.dart';
 import '../../feature/customer/categories/logic/get_all_category_cubit.dart';
 import '../../feature/customer/product_details/data/repo/product_details_repo.dart';
 import '../../feature/customer/product_details/logic/product_details_cubit.dart';
+import '../../feature/customer/products_view_all/logic/view_all_products_cubit.dart';
 import '../app/app_cubit/app_cubit.dart';
 import '../app/bloc_observer.dart';
 import '../app/upload_image/cubit/upload_cubit.dart';
@@ -134,5 +136,9 @@ Future<void> setupInjection() async {
     ..registerLazySingleton<HomeCategoryRepo>(
         () => HomeCategoryRepo(getIt<ApiService>()))
     ..registerFactory<GetAllCategoryCubit>(
-        () => GetAllCategoryCubit(getIt<HomeCategoryRepo>()));
+        () => GetAllCategoryCubit(getIt<HomeCategoryRepo>()))
+    ..registerLazySingleton<ViewAllProductsRepo>(
+        () => ViewAllProductsRepo(getIt<ApiService>()))
+    ..registerFactory<ProductsViewAllCubit>(
+        () => ProductsViewAllCubit(getIt<ViewAllProductsRepo>()));
 }

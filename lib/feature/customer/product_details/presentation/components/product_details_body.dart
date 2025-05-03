@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:velora/core/common/widgets/animate_do.dart';
 import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 import 'package:velora/feature/customer/product_details/presentation/widgets/product_details_image_slider.dart';
 import 'package:readmore/readmore.dart';
-import '../../../../../core/common/widgets/animate_do.dart';
 import '../../../../../core/common/widgets/custom_favourite_button.dart';
 import '../../../../../core/common/widgets/custom_share_button.dart';
 import '../../../../../core/common/widgets/text_app.dart';
@@ -40,7 +40,7 @@ class ProductDetailsBody extends StatelessWidget {
             ),
             verticalSpace(30),
             CustomFadeInRight(
-              duration: 700,
+              duration: 600,
               child: TextApp(
                 text: productModel.title ?? ".title ",
                 theme: context.textStyle.copyWith(
@@ -52,7 +52,7 @@ class ProductDetailsBody extends StatelessWidget {
             verticalSpace(10) //description
             ,
             CustomFadeInRight(
-              duration: 900,
+              duration: 800,
               child: ReadMoreText(
                 productModel.description ?? '',
                 trimMode: TrimMode.Length,
