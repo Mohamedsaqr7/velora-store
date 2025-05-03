@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/custom_button.dart';
 import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/language/lang_keys.dart';
+import 'package:velora/core/routes/app_routes.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 import 'package:velora/feature/customer/home/logic/categories/fetch_categories_cubit.dart';
 import 'package:velora/feature/customer/home/logic/products/fetch_products_cubit.dart';
@@ -84,13 +85,15 @@ class HomeBody extends StatelessWidget {
                   return Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15.0.w),
                     child: CustomButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.pushName(AppRoutes.productsViewAll);
+                        },
                         text: context.translate(LangKeys.viewAll),
                         lastRadius: 10,
                         threeRadius: 10,
                         textColor: Colors.black,
                         width: double.infinity,
-                        backgroundColor: context.color.bluePinkDark,
+                        backgroundColor: context.color.bluePinkLight,
                         height: 50.h),
                   );
                 }

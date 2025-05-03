@@ -14,6 +14,7 @@ import 'package:velora/feature/customer/product_details/presentation/screens/pro
 
 import '../../feature/auth/login/logic/login/login_cubit.dart';
 import '../../feature/customer/categories/presentation/screens/categories_screen.dart';
+import '../../feature/customer/products_view_all/presentation/screens/view_all_screen.dart';
 import '../app/upload_image/cubit/upload_cubit.dart';
 import '../app/upload_image/repo/upload_image_repo.dart';
 import '../common/screens/under_build_screen.dart';
@@ -26,6 +27,7 @@ class AppRoutes {
   static const String webView = '/webView';
   static const String productDetails = '/productDetails';
   static const String category = '/category';
+  static const String productsViewAll = '/productsViewAll';
   static Route<void> onGenerateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
@@ -59,21 +61,25 @@ class AppRoutes {
         );
       case webView:
         return MaterialPageRoute(
-          builder: (_) =>  CustomWebView(
+          builder: (_) => CustomWebView(
             url: args as String,
           ),
         );
       case productDetails:
         return MaterialPageRoute(
-          builder: (_) =>  ProductDetailsScreen(
+          builder: (_) => ProductDetailsScreen(
             productId: args as int,
           ),
         );
       case category:
         return MaterialPageRoute(
-          builder: (_) =>  ShowCategoriesScreen(
+          builder: (_) => ShowCategoriesScreen(
             categoryInfo: args as ({int categoryId, String categoryName}),
           ),
+        );
+      case productsViewAll:
+        return MaterialPageRoute(
+          builder: (_) => ViewAllScreen()
         );
       default:
         return BaseRoute(page: const PageUnderBuildScreen());
