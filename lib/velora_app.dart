@@ -9,6 +9,8 @@ import 'package:velora/core/di/dependency_injection.dart';
 import 'package:velora/core/routes/app_routes.dart';
 import 'package:velora/core/style/theme/app_theme.dart';
 import 'package:velora/feature/auth/sign_up/presentation/signup/signup_screen.dart';
+import 'package:velora/feature/customer/cart/cubit/cart_cubit.dart';
+import 'package:velora/feature/customer/favourite/cubit/favourites_cubit.dart';
 
 import 'core/language/app_localization_setup.dart';
 
@@ -18,11 +20,21 @@ class VeloraStore extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<AppCubit>()
-        ..changeAppThemeMode(
-            sharedMode: SharedPref().getBoolean(SecureKeys.themeMode))
-        ..getSavedLanguage(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<AppCubit>()
+            ..changeAppThemeMode(
+                sharedMode: SharedPref().getBoolean(SecureKeys.themeMode))
+            ..getSavedLanguage(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<FavouritesCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<CartCubit>(),
+        ),
+      ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         minTextAdapt: true,

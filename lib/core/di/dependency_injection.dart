@@ -18,6 +18,7 @@ import 'package:velora/feature/admin/dashboard/logic/users_number_cubit/users_cu
 import 'package:velora/feature/admin/users/data/repo/users_repo.dart';
 import 'package:velora/feature/admin/users/logic/get_users/get_users_cubit.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
+import 'package:velora/feature/customer/cart/cubit/cart_cubit.dart';
 import 'package:velora/feature/customer/home/data/repo/customer_home_repo.dart';
 import 'package:velora/feature/customer/home/logic/categories/fetch_categories_cubit.dart';
 import 'package:velora/feature/customer/home/logic/products/fetch_products_cubit.dart';
@@ -25,6 +26,8 @@ import 'package:velora/feature/customer/main/logic/main_cubit_cubit.dart';
 import 'package:velora/feature/customer/products_view_all/data/view_all_products_repo.dart';
 import 'package:velora/feature/customer/profile/data/repos/profile_repo.dart';
 import 'package:velora/feature/customer/profile/logic/user_profile_cubit.dart';
+import 'package:velora/feature/customer/search/data/repo/search_repo.dart';
+import 'package:velora/feature/customer/search/logic/search_cubit.dart';
 
 import '../../feature/admin/add_categories/data/repos/cateories_admin_repo.dart';
 import '../../feature/admin/add_notifications/logic/get_nots/get_notification_cubit.dart';
@@ -37,6 +40,7 @@ import '../../feature/auth/login/logic/login/login_cubit.dart';
 import '../../feature/auth/sign_up/data/repo/sign_up_repo.dart';
 import '../../feature/customer/categories/data/repo/Home_category_repo.dart';
 import '../../feature/customer/categories/logic/get_all_category_cubit.dart';
+import '../../feature/customer/favourite/cubit/favourites_cubit.dart';
 import '../../feature/customer/product_details/data/repo/product_details_repo.dart';
 import '../../feature/customer/product_details/logic/product_details_cubit.dart';
 import '../../feature/customer/products_view_all/logic/view_all_products_cubit.dart';
@@ -140,5 +144,11 @@ Future<void> setupInjection() async {
     ..registerLazySingleton<ViewAllProductsRepo>(
         () => ViewAllProductsRepo(getIt<ApiService>()))
     ..registerFactory<ProductsViewAllCubit>(
-        () => ProductsViewAllCubit(getIt<ViewAllProductsRepo>()));
+        () => ProductsViewAllCubit(getIt<ViewAllProductsRepo>()))
+    ..registerLazySingleton<SearchRepo>(
+        () => SearchRepo(getIt<ApiService>()))
+    ..registerFactory<SearchCubit>(
+        () => SearchCubit(getIt<SearchRepo>()))
+        ..registerFactory(FavouritesCubit.new)
+        ..registerFactory(CartCubit.new);
 }

@@ -9,8 +9,11 @@ import 'package:velora/feature/auth/login/presentation/login_screen.dart';
 import 'package:velora/feature/auth/sign_up/data/repo/sign_up_repo.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:velora/feature/auth/sign_up/presentation/signup/signup_screen.dart';
+import 'package:velora/feature/customer/cart/presentation/screen/cart_screen.dart';
+import 'package:velora/feature/customer/checkout/presentation/screen/checkout_screen.dart';
 import 'package:velora/feature/customer/main/presentation/screens/main_screen.dart';
 import 'package:velora/feature/customer/product_details/presentation/screens/product_details_screen.dart';
+import 'package:velora/feature/customer/search/presentation/screen/search_screen.dart';
 
 import '../../feature/auth/login/logic/login/login_cubit.dart';
 import '../../feature/customer/categories/presentation/screens/categories_screen.dart';
@@ -28,6 +31,9 @@ class AppRoutes {
   static const String productDetails = '/productDetails';
   static const String category = '/category';
   static const String productsViewAll = '/productsViewAll';
+  static const String search = '/search';
+  static const String cart = '/cart';
+  static const String checkOut = '/checkOut';
   static Route<void> onGenerateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
@@ -80,6 +86,19 @@ class AppRoutes {
       case productsViewAll:
         return MaterialPageRoute(
           builder: (_) => ViewAllScreen()
+        );
+      case search:
+        return MaterialPageRoute(
+          builder: (_) => SearchScreen()
+        );
+      case cart:
+        return MaterialPageRoute(
+          builder: (_) => CartScreen()
+        ); case checkOut:
+        return MaterialPageRoute(
+          builder: (_) => CheckoutScreen(
+            totalPrice: args as double,
+          ),
         );
       default:
         return BaseRoute(page: const PageUnderBuildScreen());

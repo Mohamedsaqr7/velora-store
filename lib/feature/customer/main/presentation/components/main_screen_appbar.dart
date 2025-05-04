@@ -9,6 +9,7 @@ import 'package:velora/core/constants/app_assets.dart';
 import 'package:velora/core/enums/nav_bar_enum.dart';
 import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/language/lang_keys.dart';
+import 'package:velora/core/routes/app_routes.dart';
 import 'package:velora/core/style/fonts/font_family.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/feature/customer/main/logic/main_cubit_cubit.dart';
@@ -20,16 +21,16 @@ class MainScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     var cubit = context.read<MainCubitCubit>();
     return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: context.color.mainColor,
-      elevation: 0,
-      title: CustomFadeInRight(
-        duration: 800,
-        child: BlocBuilder(
-          bloc: cubit,
-          builder: (context, state) {
-            return (cubit.navBarEnum == NavBarEnum.home)
-                ? Row(
+        automaticallyImplyLeading: false,
+        backgroundColor: context.color.mainColor,
+        elevation: 0,
+        title: CustomFadeInRight(
+          duration: 800,
+          child: BlocBuilder(
+              bloc: cubit,
+              builder: (context, state) {
+                if (cubit.navBarEnum == NavBarEnum.home) {
+                  return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomFadeInRight(
@@ -45,18 +46,34 @@ class MainScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
                       CustomFadeInLeft(
                         duration: 800,
                         child: CustomLinearButton(
-                            onPressed: () {},
-                            child: Center(
-                              child: SvgPicture.asset(AppAssets.search),
-                            )),
+                          onPressed: () {
+                            context.pushName(AppRoutes.search);
+                          },
+                          child: Center(
+                            child: SvgPicture.asset(AppAssets.search),
+                          ),
+                        ),
                       )
                     ],
-                  )
-                : SizedBox.shrink();
-          },
-        ),
-      ),
-    );
+                  );
+                } else if (cubit.navBarEnum == NavBarEnum.favorites) {
+                  return Center(
+                    child: CustomFadeInRight(
+                      duration: 800,
+                      child: TextApp(
+                        text: 'Your Favorite',
+                        theme: context.textStyle.copyWith(
+                          fontSize: 20.sp,
+                          fontWeight: FontWeightHelper.bold,
+                          color: context.color.textColor,
+                        ),
+                      ),
+                    ),
+                  );
+                }
+                return const SizedBox.shrink();
+              }),
+        ));
   }
 
   @override
