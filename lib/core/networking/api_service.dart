@@ -117,4 +117,8 @@ abstract class ApiService {
   Future<GetAllProductResponse> viewAllProducts(
     @Body() Map<String, dynamic> query,
   );
+  @POST(ApiConstants.graphQl)
+  Future<GetAllProductResponse> searchProducts(
+    @Body() Map<String, dynamic> query,
+  );
 }

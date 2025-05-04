@@ -27,9 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void scrollUp() {
     scrollController.animateTo(
-      0,
+      2,
       duration: const Duration(seconds: 1),
-      curve: Curves.easeIn,
+      curve: Curves.easeInOutQuart,
     );
   }
 
@@ -38,13 +38,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create:(context) => getIt<FetchCategoriesCubit>()..getCategories(),
+          create: (context) => getIt<FetchCategoriesCubit>()..getCategories(),
         ),
         BlocProvider(
           create: (context) => getIt<FetchProductsCubit>()..getAllProducts(),
         ),
       ],
-    
       child: Stack(
         children: [
           HomeBody(

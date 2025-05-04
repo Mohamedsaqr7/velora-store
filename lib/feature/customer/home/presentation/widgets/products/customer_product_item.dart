@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velora/core/common/widgets/custom_favourite_button.dart';
-import 'package:velora/core/common/widgets/custom_share_button.dart';
+import 'package:velora/core/common/widgets/custom_cart_button.dart';
 import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/extensions/strring_extension.dart';
 import 'package:velora/core/routes/app_routes.dart';
@@ -10,6 +11,8 @@ import 'package:velora/core/routes/app_routes.dart';
 import '../../../../../../core/common/widgets/custom_container_linera_customer.dart';
 import '../../../../../../core/common/widgets/text_app.dart';
 import '../../../../../../core/style/fonts/font_weight.dart';
+import '../../../../cart/cubit/cart_cubit.dart';
+import '../../../../favourite/cubit/favourites_cubit.dart';
 
 class CustomerProductItem extends StatelessWidget {
   const CustomerProductItem(
@@ -42,11 +45,45 @@ class CustomerProductItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //Share Button
-                CustomShareButton(size: 25, onTap: () {}),
-
+                BlocBuilder<CartCubit, CartState>(
+                  builder: (context, state) {
+                    return CustomCartButton(
+                      size: 30,
+                      isInCart: context
+                          .read<CartCubit>()
+                          .isInCart(productId.toString()),
+                      onTap: () async {
+                        await context.read<CartCubit>().addOrUpdateCart(
+                              productId: productId.toString(),
+                              title: title,
+                              image: imageUrl,
+                              price: price.toString(),
+                              categoryName: categoryName,
+                            );
+                      },
+                    );
+                  },
+                ),
                 //Favorite Button
-                CustomFavoriteButton(
-                    size: 25, isFavorites: false, onTap: () {}),
+                BlocBuilder<FavouritesCubit, FavouritesState>(
+                  builder: (context, state) {
+                    return CustomFavoriteButton(
+                      size: 25,
+                      isFavorites: context
+                          .read<FavouritesCubit>()
+                          .isFavorites(productId.toString()),
+                      onTap: () async {
+                        await context.read<FavouritesCubit>().manageFavourites(
+                              productId: productId.toString(),
+                              title: title,
+                              image: imageUrl,
+                              price: price.toString(),
+                              categoryName: categoryName,
+                            );
+                      },
+                    );
+                  },
+                ),
               ],
             ),
             // Show Image

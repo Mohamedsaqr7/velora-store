@@ -37,7 +37,7 @@ class ProductDetailsScreen extends StatelessWidget {
                     title: productDetailsModel.title?.convertLongString() ??
                         'title'),
                 bottomNavigationBar:
-                    AddToCartButton(price: productDetailsModel.price ?? 0),
+                    AddToCartButton(price: productDetailsModel.price ?? 0,productModel: productDetailsModel,),
                 body: Stack(
                   children: [
                     CustomPaint(
