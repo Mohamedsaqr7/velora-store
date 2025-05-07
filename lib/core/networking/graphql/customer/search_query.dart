@@ -1,4 +1,4 @@
-import '../../../../feature/customer/search/data/models/search_request_body.dart';
+import '../../../../feature/customer/screens/search/data/models/search_request_body.dart';
 
 class SearchQueries {
   factory SearchQueries() {

@@ -9,8 +9,8 @@ import 'package:velora/core/di/dependency_injection.dart';
 import 'package:velora/core/routes/app_routes.dart';
 import 'package:velora/core/style/theme/app_theme.dart';
 import 'package:velora/feature/auth/sign_up/presentation/signup/signup_screen.dart';
-import 'package:velora/feature/customer/cart/cubit/cart_cubit.dart';
-import 'package:velora/feature/customer/favourite/cubit/favourites_cubit.dart';
+import 'package:velora/feature/customer/layouts/cart/cubit/cart_cubit.dart';
+import 'package:velora/feature/customer/layouts/favourite/cubit/favourites_cubit.dart';
 
 import 'core/language/app_localization_setup.dart';
 
@@ -44,25 +44,25 @@ class VeloraStore extends StatelessWidget {
               final cubit = context.read<AppCubit>();
 
               return MaterialApp(
-                  title: 'Velora Store',
-                  debugShowCheckedModeBanner: EnvVariable.instance.debugMood,
-                  theme: cubit.isDark ? themeLight() : themeDark(),
-                  locale: Locale(cubit.currentLangCode),
-                  supportedLocales: AppLocalizationsSetup.supportedLocales,
-                  // ignore: lines_longer_than_80_chars
-                  localizationsDelegates:
-                      AppLocalizationsSetup.localizationsDelegates,
-                  // ignore: lines_longer_than_80_chars
-                  localeResolutionCallback:
-                      AppLocalizationsSetup.localeResolutionCallback,
-                  onGenerateRoute: AppRoutes.onGenerateRoute,
-                  initialRoute: SharedPref()
-                              .getString(SecureKeys.accessToken) !=
-                          null
-                      ? SharedPref().getString(SecureKeys.userRole) != 'admin'
-                          ? AppRoutes.homeCustomer
-                          : AppRoutes.homeAdmin
-                      : AppRoutes.login);
+                title: 'Velora Store',
+                debugShowCheckedModeBanner: EnvVariable.instance.debugMood,
+                theme: cubit.isDark ? themeLight() : themeDark(),
+                locale: Locale(cubit.currentLangCode),
+                supportedLocales: AppLocalizationsSetup.supportedLocales,
+                // ignore: lines_longer_than_80_chars
+                localizationsDelegates:
+                    AppLocalizationsSetup.localizationsDelegates,
+                // ignore: lines_longer_than_80_chars
+                localeResolutionCallback:
+                    AppLocalizationsSetup.localeResolutionCallback,
+                onGenerateRoute: AppRoutes.onGenerateRoute,
+                initialRoute:
+                    SharedPref().getString(SecureKeys.accessToken) != null
+                        ? SharedPref().getString(SecureKeys.userRole) != 'admin'
+                            ? AppRoutes.homeCustomer
+                            : AppRoutes.homeAdmin
+                        : AppRoutes.login,
+              );
             });
           },
         ),

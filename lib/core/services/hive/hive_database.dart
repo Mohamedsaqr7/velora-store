@@ -1,9 +1,9 @@
 import 'package:hive_ce/hive.dart';
 import 'package:hive_ce_flutter/adapters.dart';
-import 'package:velora/feature/customer/cart/model/cart_model.dart';
 
 import '../../../feature/admin/add_notifications/data/model/add_notification_model.dart';
-import '../../../feature/customer/favourite/data/favourites_model.dart';
+import '../../../feature/customer/layouts/cart/model/cart_model.dart';
+import '../../../feature/customer/layouts/favourite/data/favourites_model.dart';
 
 class HiveDatabase {
   HiveDatabase._();
