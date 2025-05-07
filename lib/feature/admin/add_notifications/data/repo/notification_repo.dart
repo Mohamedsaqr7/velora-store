@@ -5,21 +5,41 @@ import 'package:velora/feature/admin/add_notifications/data/model/add_notificati
 import '../../../../../core/networking/api_result.dart';
 import '../../../../../core/services/push_notifications/firebase_cloud_messaging.dart';
 
+class AddNotificationDataSource {
+  // Send Notification Topics to users
+  Future<void> sendNotifications({
+    required String body,
+    required String title,
+    required int productId,
+  }) async {
+    final response = await NotificationService.sendNotification(
+      body,
+      title,
+      productId,
+    );
+    return response;
+  }
+}
+
 class NotificationsRepo {
-  Future<ApiResult<void>> sendNotification({
-    required AddNotificationModel model,
+  const NotificationsRepo(this._dataSource);
+
+  final AddNotificationDataSource _dataSource;
+
+  // send notification to all users
+  Future<ApiResult<void>> sendNotifications({
+    required String title,
+    required String body,
+    required int productId,
   }) async {
     try {
-      final result = await NotificationService.sendNotification(
-         model.title??'',
-         model.body??'',
-        int.parse (model.productID.toString(),)
+      final response = await _dataSource.sendNotifications(
+        body: body,
+        productId: productId,
+        title: title,
       );
-      return ApiResult.success(result);
+      return ApiResult.success(response);
     } catch (e) {
-      if (e is DioException) {
-        return ApiResult.failure(ErrorHandler.handle(e));
-      }
       return ApiResult.failure(ErrorHandler.handle(e));
     }
   }

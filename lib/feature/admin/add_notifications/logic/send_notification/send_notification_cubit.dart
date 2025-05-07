@@ -18,13 +18,16 @@ class SendNotificationCubit extends Cubit<SendNotificationState> {
       required int loadingAtIndex}) async {
     emit(SendNotificationState.loading(indexId: loadingAtIndex));
 
-    final result =
-        await notificationsRepo.sendNotification(model: addNotificationModel);
+    final result = await notificationsRepo.sendNotifications(
+        body: addNotificationModel.body ?? '',
+        title: addNotificationModel.title ?? '',
+        productId: int.parse(addNotificationModel.productID.toString()));
     result.when(
       success: (_) {
         emit(SendNotificationState.success());
       },
       failure: (errorHandler) {
+        print('❌ Notification Send Failed: ${errorHandler.apiErrorModel}');
         emit(SendNotificationState.failure(errorHandler));
       },
     );

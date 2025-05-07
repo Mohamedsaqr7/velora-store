@@ -9,15 +9,15 @@ import 'package:velora/feature/auth/login/presentation/login_screen.dart';
 import 'package:velora/feature/auth/sign_up/data/repo/sign_up_repo.dart';
 import 'package:velora/feature/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:velora/feature/auth/sign_up/presentation/signup/signup_screen.dart';
-import 'package:velora/feature/customer/cart/presentation/screen/cart_screen.dart';
-import 'package:velora/feature/customer/checkout/presentation/screen/checkout_screen.dart';
+import 'package:velora/feature/customer/screens/checkout/presentation/screen/checkout_screen.dart';
 import 'package:velora/feature/customer/main/presentation/screens/main_screen.dart';
-import 'package:velora/feature/customer/product_details/presentation/screens/product_details_screen.dart';
-import 'package:velora/feature/customer/search/presentation/screen/search_screen.dart';
+import 'package:velora/feature/customer/screens/search/presentation/screen/search_screen.dart';
 
 import '../../feature/auth/login/logic/login/login_cubit.dart';
-import '../../feature/customer/categories/presentation/screens/categories_screen.dart';
-import '../../feature/customer/products_view_all/presentation/screens/view_all_screen.dart';
+import '../../feature/customer/layouts/cart/presentation/screen/cart_screen.dart';
+import '../../feature/customer/screens/categories/presentation/screens/categories_screen.dart';
+import '../../feature/customer/screens/product_details/presentation/screens/product_details_screen.dart';
+import '../../feature/customer/screens/products_view_all/presentation/screens/view_all_screen.dart';
 import '../app/upload_image/cubit/upload_cubit.dart';
 import '../app/upload_image/repo/upload_image_repo.dart';
 import '../common/screens/under_build_screen.dart';
@@ -34,6 +34,7 @@ class AppRoutes {
   static const String search = '/search';
   static const String cart = '/cart';
   static const String checkOut = '/checkOut';
+  static const String test1 = '/test1';
   static Route<void> onGenerateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
@@ -94,12 +95,14 @@ class AppRoutes {
       case cart:
         return MaterialPageRoute(
           builder: (_) => CartScreen()
-        ); case checkOut:
+        );
+      case checkOut:
         return MaterialPageRoute(
           builder: (_) => CheckoutScreen(
             totalPrice: args as double,
           ),
         );
+         
       default:
         return BaseRoute(page: const PageUnderBuildScreen());
     }

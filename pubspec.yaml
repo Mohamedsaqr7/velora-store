@@ -36,8 +36,7 @@ dependencies:
   flutter_animate: ^4.5.2
   flutter_bloc: ^9.1.0
   flutter_dotenv: ^5.2.1
-  flutter_launcher_icons: ^0.14.3
-  flutter_local_notifications: ^19.1.0
+  flutter_local_notifications: ^17.0.0
   flutter_localizations:
     sdk: flutter
   flutter_native_splash: ^2.4.1
@@ -79,12 +78,6 @@ dev_dependencies:
     sdk: flutter
   json_serializable: ^6.8.0
 
-flutter_launcher_icons:
-  android: "launcher_icon"
-  ios: true
-  image_path: 'assets\images\core\icon.png'
-  remove_alpha_ios: true
-  min_sdk_android: 21
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.

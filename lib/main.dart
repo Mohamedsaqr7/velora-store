@@ -9,6 +9,7 @@ import 'core/app/env_variables.dart';
 import 'core/constants/secure_storage.dart';
 import 'core/di/dependency_injection.dart';
 import 'core/services/push_notifications/firebase_cloud_messaging.dart';
+import 'core/services/push_notifications/local_notification_service.dart';
 import 'velora_app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -20,7 +21,9 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await NotificationService().init();
+  // await NotificationService().deleteFCMToken();
   Bloc.observer = AppBlocObserver();
+  await LocalNotificationService.init();
   await HiveDatabase.setup();
   // SharedPreferences prefs = await SharedPreferences.getInstance(); // التهيئة
   await setupInjection();
