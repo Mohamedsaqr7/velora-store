@@ -7,7 +7,7 @@ part 'favourites_cubit.freezed.dart';
 
 class FavouritesCubit extends Cubit<FavouritesState> {
   FavouritesCubit() : super(FavouritesState.initial());
-  
+
   Future<void> manageFavourites({
     required String productId,
     required String title,
@@ -15,7 +15,7 @@ class FavouritesCubit extends Cubit<FavouritesState> {
     required String price,
     required String categoryName,
   }) async {
-    emit( FavouritesState.initial());
+    if (!isClosed) emit(FavouritesState.initial());
     final existingIndex = HiveDatabase()
         .favoritesBox!
         .values
@@ -35,7 +35,7 @@ class FavouritesCubit extends Cubit<FavouritesState> {
             ),
           );
     }
-    emit(const FavouritesState.addAndRemoveFavorites());
+    if (!isClosed) emit(const FavouritesState.addAndRemoveFavorites());
   }
 
   bool isFavorites(String productId) {

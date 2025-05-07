@@ -70,6 +70,20 @@ class MainScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
                       ),
                     ),
                   );
+                } else if (cubit.navBarEnum == NavBarEnum.notifications) {
+                  return Center(
+                    child: CustomFadeInRight(
+                      duration: 800,
+                      child: TextApp(
+                        text: 'Your Notifications',
+                        theme: context.textStyle.copyWith(
+                          fontSize: 20.sp,
+                          fontWeight: FontWeightHelper.bold,
+                          color: context.color.textColor,
+                        ),
+                      ),
+                    ),
+                  );
                 }
                 return const SizedBox.shrink();
               }),

@@ -6,6 +6,7 @@ import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/feature/customer/layouts/home/presentation/widgets/products/customer_product_item.dart';
 
+import '../../../../../../core/constants/app_assets.dart';
 import '../../cubit/favourites_cubit.dart';
 
 class FavouriteBody extends StatelessWidget {
