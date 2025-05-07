@@ -40,6 +40,8 @@ abstract class AppAssets {
   static const buildDeveloper = '${AppConstants.svgPath}build_developer.svg';
   static const logout = '${AppConstants.svgPath}logout.svg';
   static const backButton = '${AppConstants.svgPath}arrow_back.svg';
+  static const notificationIcon =
+      '${AppConstants.svgPath}notification_icon.svg';
   // //banner
   static const banner1 = '${AppConstants.bannerPath}banner_1.jpg';
   static const banner2 = '${AppConstants.bannerPath}banner_2.jpg';

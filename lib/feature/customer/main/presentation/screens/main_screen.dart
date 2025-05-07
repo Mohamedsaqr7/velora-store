@@ -7,37 +7,16 @@ import 'package:velora/core/routes/app_routes.dart';
 import 'package:velora/feature/customer/layouts/favourite/presentation/favourite_screen.dart';
 import 'package:velora/feature/customer/layouts/profile/presentation/screens/profile_screen.dart';
 import 'package:velora/feature/customer/main/logic/main_cubit_cubit.dart';
+import 'package:velora/feature/customer/notifications/presentation/screen/notification_screen.dart';
 
 import '../../../../../core/enums/nav_bar_enum.dart';
 import '../../../../../core/services/push_notifications/local_notification_service.dart';
-import '../../../customer_categories/categories.dart';
 import '../../../layouts/home/presentation/screens/home_screen.dart';
 import '../components/bottom_nav_bar.dart';
 import '../components/main_screen_appbar.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-    @override
-  void initState() {
-    super.initState();
-    listenToNotifications();
-  }
-
-  void listenToNotifications() {
-    LocalNotificationService.streamController.stream.listen((event) {
-      if (int.parse(event.payload.toString()) == -1) return;
-      context.pushName(
-        AppRoutes.productDetails,
-        arguments: int.parse(event.payload.toString()),
-      );
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +39,8 @@ class _MainScreenState extends State<MainScreen> {
               Expanded(child: BlocBuilder<MainCubitCubit, MainCubitState>(
                 builder: (context, state) {
                   final cubit = context.read<MainCubitCubit>();
-                  if (cubit.navBarEnum == NavBarEnum.catgeories) {
-                    return const CategoriesScreen();
+                  if (cubit.navBarEnum == NavBarEnum.notifications) {
+                    return const NotificationScreen();
                   } else if (cubit.navBarEnum == NavBarEnum.favorites) {
                     return const FavouriteScreen();
                   } else if (cubit.navBarEnum == NavBarEnum.profile) {

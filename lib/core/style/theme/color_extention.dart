@@ -5,6 +5,7 @@ import '../colors/colors_light.dart';
 
 class MyColors extends ThemeExtension<MyColors> {
   const MyColors({
+    required this.notColor,
     required this.mainColor,
     required this.bluePinkDark,
     required this.bluePinkLight,
@@ -19,6 +20,7 @@ class MyColors extends ThemeExtension<MyColors> {
   });
 
   final Color? mainColor;
+  final Color? notColor;
   final Color? bluePinkDark;
   final Color? bluePinkLight;
   final Color? textColor;
@@ -44,6 +46,7 @@ class MyColors extends ThemeExtension<MyColors> {
     Color? containerLinear1,
   }) {
     return MyColors(
+      notColor: notColor,
       mainColor: mainColor,
       bluePinkDark: bluePinkDark,
       bluePinkLight: bluePinkLight,
@@ -67,6 +70,7 @@ class MyColors extends ThemeExtension<MyColors> {
       return this;
     }
     return MyColors(
+      notColor: notColor,
       mainColor: mainColor,
       bluePinkDark: bluePinkDark,
       bluePinkLight: bluePinkLight,
@@ -82,6 +86,7 @@ class MyColors extends ThemeExtension<MyColors> {
   }
 
   static const MyColors dark = MyColors(
+    notColor: ColorsDark.notColor,
     mainColor: ColorsDark.mainColor,
     bluePinkDark: ColorsDark.blueDark,
     bluePinkLight: ColorsDark.blueLight,
@@ -96,6 +101,7 @@ class MyColors extends ThemeExtension<MyColors> {
   );
 
   static const MyColors light = MyColors(
+    notColor: ColorsLight.notColor,
     mainColor: ColorsLight.mainColor,
     bluePinkDark: ColorsLight.pinkDark,
     bluePinkLight: ColorsLight.pinkLight,

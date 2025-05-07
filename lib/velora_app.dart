@@ -28,8 +28,9 @@ class VeloraStore extends StatelessWidget {
                 sharedMode: SharedPref().getBoolean(SecureKeys.themeMode))
             ..getSavedLanguage(),
         ),
-        BlocProvider(
-          create: (context) => getIt<FavouritesCubit>(),
+        BlocProvider.value(
+          value: getIt<FavouritesCubit>(),
+          // create: (context) => getIt<FavouritesCubit>(),
         ),
         BlocProvider(
           create: (context) => getIt<CartCubit>(),

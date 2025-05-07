@@ -10,6 +10,7 @@ import 'package:velora/core/routes/app_routes.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 import 'package:velora/feature/customer/main/logic/main_cubit_cubit.dart';
 import 'package:velora/feature/customer/main/presentation/widgets/nav_bar_icons.dart';
+import 'package:velora/feature/customer/main/presentation/widgets/notification_bar_icon.dart';
 
 class MainBottomNavBar extends StatelessWidget {
   const MainBottomNavBar({super.key});
@@ -53,14 +54,13 @@ class MainBottomNavBar extends StatelessWidget {
                                       icon: AppAssets.homeTab,
                                       isSelected:
                                           cubit.navBarEnum == NavBarEnum.home),
-                                  IconTapNavBar(
+                                  NotificationBarIcon(
                                       onTap: () {
                                         cubit.selectedNavBarIcons(
-                                            NavBarEnum.catgeories);
+                                            NavBarEnum.notifications);
                                       },
-                                      icon: AppAssets.categoriesTab,
                                       isSelected: cubit.navBarEnum ==
-                                          NavBarEnum.catgeories),
+                                          NavBarEnum.notifications),
                                   IconTapNavBar(
                                       onTap: () {
                                         cubit.selectedNavBarIcons(

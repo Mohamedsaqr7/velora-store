@@ -11,6 +11,8 @@ import 'package:velora/core/language/lang_keys.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/core/common/widgets/custom_dialogs.dart';
 
+import '../../../../../../core/services/hive/hive_database.dart';
+
 class LogOutWidget extends StatelessWidget {
   const LogOutWidget({super.key});
 
@@ -47,6 +49,8 @@ class LogOutWidget extends StatelessWidget {
             await SharedPref().removePreference(SecureKeys.accessToken);
             await SharedPref().removePreference(SecureKeys.userId);
             await SharedPref().removePreference(SecureKeys.userRole);
+                await HiveDatabase().clearAllBox();
+
             await navigator.pushNamedAndRemoveUntil(
               AppRoutes.login,
               (route) => false,
