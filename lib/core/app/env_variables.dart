@@ -5,6 +5,7 @@ class EnvVariable {
   static final EnvVariable instance = EnvVariable._();
   String _envType = '';
   String _buildDeveloper = '';
+
   Future<void> init({required EnvType envtype}) async {
     switch (envtype) {
       case EnvType.dev:

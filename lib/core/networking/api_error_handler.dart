@@ -123,15 +123,13 @@ class ErrorHandler implements Exception {
   late ApiErrorModel apiErrorModel;
 
   ErrorHandler.handle(dynamic error) {
-    print(
-        "⚠️ Error occurred: $error"); // ✅ اطبع الخطأ لرؤية التفاصيل في الـ Debug Console
-    print("⚠️ DioException Type: ${error.type}");
+    print("⚠️ Error occurred: $error");
 
     if (error is DioException) {
-      // dio error so its an error from response of the API or from dio itself
+      print("⚠️ DioException Type: ${error.type}");
       apiErrorModel = _handleError(error);
     } else {
-      // default error
+      // هنا تتأكد إنك مش بتحاول توصل لشيء مش موجود
       apiErrorModel = DataSource.DEFAULT.getFailure();
     }
   }

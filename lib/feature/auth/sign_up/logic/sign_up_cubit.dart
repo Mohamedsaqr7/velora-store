@@ -13,14 +13,13 @@ class SignUpCubit extends Cubit<SignupState> {
   final formKey = GlobalKey<FormState>();
   void emitSignupStates({required String imageUrl}) async {
     emit(const SignupState.signupLoading());
-    print("✅ Login loading, emitting Success state");
-    print("✅ Login load, emitting Success state");
+   
     final response = await _signupRepo.signUp(
       requestModel: SignUpRequestModel(
         name: nameController.text.trim(),
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
-        avatar: imageUrl ?? 'https://api.lorem.space/image/face?w=640&h=480',
+        avatar: imageUrl  ,
       ),
     );
 

@@ -53,6 +53,7 @@ class SharedPref {
   }
 
   ///Below method is to set the int value in the SharedPreferences.
+    ///Below method is to set the int value in the SharedPreferences.
   Future<dynamic> setInt(String key, int intValue) async {
     await sharedPreferences.setInt(key, intValue);
   }
@@ -97,6 +98,7 @@ class SharedPref {
     const flutterSecureStorage = FlutterSecureStorage();
     await flutterSecureStorage.deleteAll();
   }
+
   ///Below method is to clear the SharedPreference.
   Future<dynamic> clearPreferences() async {
     await sharedPreferences.clear();

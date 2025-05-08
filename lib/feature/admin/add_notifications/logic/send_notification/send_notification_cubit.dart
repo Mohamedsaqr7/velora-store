@@ -19,15 +19,22 @@ class SendNotificationCubit extends Cubit<SendNotificationState> {
     emit(SendNotificationState.loading(indexId: loadingAtIndex));
 
     final result = await notificationsRepo.sendNotifications(
-        body: addNotificationModel.body ?? '',
-        title: addNotificationModel.title ?? '',
-        productId: int.parse(addNotificationModel.productID.toString()));
+      body: addNotificationModel.body ?? '',
+      title: addNotificationModel.title ?? '',
+      productId: int.parse(addNotificationModel.productID.toString()),
+    );
     result.when(
-      success: (_) {
+      success: (_) async {
+        await notificationsRepo.addNotificationsToAllUsersFirebase(
+          body: addNotificationModel.body ?? '',
+          title: addNotificationModel.title ?? '',
+          productId: int.parse(addNotificationModel.productID.toString()),
+        );
         emit(SendNotificationState.success());
       },
       failure: (errorHandler) {
-        print('❌ Notification Send Failed: ${errorHandler.apiErrorModel}');
+        print(
+            '❌ Notification Send Failed: ${errorHandler.apiErrorModel.message}');
         emit(SendNotificationState.failure(errorHandler));
       },
     );
