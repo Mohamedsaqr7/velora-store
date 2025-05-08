@@ -7,73 +7,89 @@ import 'package:velora/core/extensions/context_extension.dart';
 import 'package:velora/core/style/fonts/font_weight.dart';
 import 'package:velora/core/style/theme/spacing.dart';
 
+
 class NotificationItem extends StatelessWidget {
-  const NotificationItem({super.key});
+  const NotificationItem({
+    required this.title,
+    required this.body,
+    required this.createdAt,
+    required this.isSeen,
+    required this.onTapSelected,
+    required this.onTapRemoved,
+    super.key,
+  });
+
+  final String title;
+  final String body;
+  final String createdAt;
+  final bool isSeen;
+  final VoidCallback onTapSelected;
+  final VoidCallback onTapRemoved;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       isThreeLine: true,
-      onTap: () {},
+      onTap: onTapSelected,
       leading: Container(
         height: 50.h,
         width: 50.w,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(
-            color: Colors.white,
+            color: isSeen ? Colors.grey : Colors.white,
             width: 1.5,
           ),
         ),
         child: Center(
           child: SvgPicture.asset(
             AppAssets.notificationIcon,
-            color: context.color.notColor,
+            color: Colors.pink,
             height: 30.h,
           ),
         ),
       ),
       //Title
       title: TextApp(
-        text: 'title',
+        text: title,
         theme: context.textStyle.copyWith(
           fontSize: 12.sp,
           fontWeight: FontWeightHelper.medium,
-          color: Colors.white,
+          color: isSeen ? Colors.grey : Colors.white,
         ),
       ),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          verticalSpace(5),
+          SizedBox(height: 5.h),
           //Body
           TextApp(
-            text: 'Body',
+            text: body,
             theme: context.textStyle.copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeightHelper.medium,
-              color: Colors.white,
+              color: isSeen ? Colors.grey : Colors.white,
             ),
           ),
-          verticalSpace(5),
+          SizedBox(height: 5.h),
           //created at
           TextApp(
-            text: 'Created At',
+            text: createdAt,
             theme: context.textStyle.copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeightHelper.medium,
-              color: Colors.white,
+              color: isSeen ? Colors.grey : Colors.green,
             ),
           ),
-          verticalSpace(5),
+          SizedBox(height: 5.h),
           Divider(
-            color: Colors.white,
+            color: isSeen ? Colors.grey : Colors.white,
           ),
         ],
       ),
       trailing: GestureDetector(
-        onTap: () {},
+        onTap: onTapRemoved,
         child: const Icon(
           Icons.close,
           color: Colors.yellow,

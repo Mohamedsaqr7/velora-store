@@ -11,3 +11,5 @@ class AppConstants {
 
 
 
+const String usersCollection = 'Users';
+const String notificationCollection = 'Notifications';

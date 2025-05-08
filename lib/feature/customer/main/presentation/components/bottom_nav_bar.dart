@@ -54,13 +54,15 @@ class MainBottomNavBar extends StatelessWidget {
                                       icon: AppAssets.homeTab,
                                       isSelected:
                                           cubit.navBarEnum == NavBarEnum.home),
-                                  NotificationBarIcon(
-                                      onTap: () {
-                                        cubit.selectedNavBarIcons(
-                                            NavBarEnum.notifications);
-                                      },
-                                      isSelected: cubit.navBarEnum ==
-                                          NavBarEnum.notifications),
+                                  GestureDetector(onTap: () {
+                                          cubit.selectedNavBarIcons(
+                                              NavBarEnum.notifications);
+                                        },
+                                    child: NotificationBarIcon(
+                                        
+                                        isSelected: cubit.navBarEnum ==
+                                            NavBarEnum.notifications),
+                                  ),
                                   IconTapNavBar(
                                       onTap: () {
                                         cubit.selectedNavBarIcons(

@@ -31,9 +31,11 @@ class LoginCubit extends Cubit<LoginState> {
         await SharedPref().setString(SecureKeys.accessToken, accessToken);
         await DioFactory.setTokenIntoHeaderAfterLogin(token: accessToken);
         final user = await _authRepo.userRole();
+         print('👤 Got user from userRole(): ${user.userId}, ${user.userRole}');
         await SharedPref().setInt(SecureKeys.userId, user.userId ?? 0);
         await SharedPref().setString(SecureKeys.userId, user.userRole ?? '');
-        print("✅ Login successful, emitting Success state");
+        await _authRepo.addUserIdToFirebaseAccount(
+            userId: user.userId.toString());
         emit(LoginState.success(user.userRole ?? ''));
         print("✅ Login successful, emitting Success state");
       },
